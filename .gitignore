@@ -1,11 +1,8 @@
-# Exclude the exported JSON file
+# Exclude the exported JSON file (source data)
 exametric-439ba-default-rtdb-export _new.json
 
 # Generated files
 graphs/
-simplified_exam_data.json
-simplified_exam_data_with_transcriptions.json
-simplified_exam_data_with_questions.json
 audio_files/
 
 # Python
