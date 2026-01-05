@@ -117,6 +117,44 @@ pip install openai-whisper matplotlib requests
 - matplotlib (for visualizations)
 - requests (for downloading audio files)
 
+## Setup and Usage
+
+### 1. Install Dependencies
+
+```bash
+# Create virtual environment (optional but recommended)
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install required packages
+pip install openai-whisper matplotlib requests
+```
+
+### 2. Prepare Data
+
+Place your Firebase export file named `exametric-439ba-default-rtdb-export _new.json` in the project root.
+
+### 3. Generate Datasets
+
+Run the scripts in order:
+
+```bash
+# Step 1: Simplify the raw data
+python script.py
+
+# Step 2: Transcribe audio answers (takes ~10-15 minutes)
+python transcribe_audio.py
+
+# Step 3: Add question texts
+python add_questions.py
+```
+
+**Note:** The generated JSON files (`simplified_*.json`) are excluded from Git via `.gitignore`. You need to generate them locally using the steps above.
+
+### 4. Analyze Data
+
+The final dataset `simplified_exam_data_with_questions.json` is now ready for analysis!
+
 ## Key Features
 
 - ✅ Clean, structured data format
