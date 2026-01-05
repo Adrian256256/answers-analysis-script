@@ -149,10 +149,10 @@ output_file = 'simplified_exam_data_with_questions.json'
 with open(output_file, 'w', encoding='utf-8') as f:
     json.dump(data, f, indent=2, ensure_ascii=False)
 
-print(f"✅ Added question texts to {added_count} answers")
-print(f"📄 Updated data saved to: {output_file}")
-print(f"\n💡 Each answer now contains:")
-print(f"  • question_text: The full question text")
-print(f"  • question_type: blank, audio, or multiple")
-print(f"  • question_tts_text: Audio question text (for audio questions)")
-print(f"  • expected_answers: Correct answers (when available)")
+print(f"Added question texts to {added_count} answers")
+print(f"Updated data saved to: {output_file}")
+print(f"\nEach answer now contains:")
+print(f"  - question_text: The full question text")
+print(f"  - question_type: blank, audio, or multiple")
+print(f"  - question_tts_text: Audio question text (for audio questions)")
+print(f"  - expected_answers: Correct answers (when available)")

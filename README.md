@@ -157,12 +157,12 @@ The final dataset `simplified_exam_data_with_questions.json` is now ready for an
 
 ## Key Features
 
-- ✅ Clean, structured data format
-- ✅ AI-powered audio transcription with high accuracy
-- ✅ Complete question texts and metadata
-- ✅ Performance metrics (time, accuracy, engagement)
-- ✅ Cheating detection indicators (tab changes)
-- ✅ Ready for statistical analysis and visualization
+- Clean, structured data format
+- AI-powered audio transcription with high accuracy
+- Complete question texts and metadata
+- Performance metrics (time, accuracy, engagement)
+- Cheating detection indicators (tab changes)
+- Ready for statistical analysis and visualization
 
 ## Data Source
 

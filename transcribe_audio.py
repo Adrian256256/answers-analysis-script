@@ -9,7 +9,7 @@ try:
     WHISPER_AVAILABLE = True
 except ImportError:
     WHISPER_AVAILABLE = False
-    print("⚠️  Whisper not installed. Installing now...")
+    print("Whisper not installed. Installing now...")
 
 try:
     import speech_recognition as sr
@@ -34,7 +34,7 @@ def download_audio(url, output_path):
             f.write(response.content)
         return True
     except Exception as e:
-        print(f"  ❌ Error downloading: {e}")
+        print(f"  Error downloading: {e}")
         return False
 
 def transcribe_with_whisper(audio_path):
@@ -49,7 +49,7 @@ def transcribe_with_whisper(audio_path):
         )
         return result["text"].strip()
     except Exception as e:
-        print(f"  ❌ Whisper transcription failed: {e}")
+        print(f"  Whisper transcription failed: {e}")
         return None
 
 def transcribe_with_speech_recognition(audio_path):
@@ -61,7 +61,7 @@ def transcribe_with_speech_recognition(audio_path):
             text = recognizer.recognize_google(audio)
             return text.strip()
     except Exception as e:
-        print(f"  ❌ Speech Recognition failed: {e}")
+        print(f"  Speech Recognition failed: {e}")
         return None
 
 # Count audio answers
@@ -74,15 +74,15 @@ for user in data['users']:
             if answer.get('transcription') == "NOT_AVAILABLE_IN_SOURCE_DATA":
                 audio_count += 1
 
-print(f"🎤 Found {audio_count} audio answers to transcribe\n")
+print(f"Found {audio_count} audio answers to transcribe\n")
 
 if audio_count == 0:
-    print("✅ No audio files need transcription!")
+    print("No audio files need transcription!")
     exit(0)
 
 # Check if we have transcription tools available
 if not WHISPER_AVAILABLE and not SR_AVAILABLE:
-    print("❌ No transcription libraries available!")
+    print("No transcription libraries available!")
     print("\nTo transcribe audio, install one of these:")
     print("  1. OpenAI Whisper (recommended): pip install openai-whisper")
     print("  2. SpeechRecognition: pip install SpeechRecognition pydub")
@@ -122,19 +122,19 @@ for user_idx, user in enumerate(data['users']):
                     if 'user_answer' not in answer or not answer['user_answer']:
                         answer['user_answer'] = transcription
                     transcribed_count += 1
-                    print(f"  ✅ Transcribed: '{transcription[:50]}...'")
+                    print(f"  Transcribed: '{transcription[:50]}...'")
                 else:
                     answer['transcription'] = "TRANSCRIPTION_FAILED"
-                    print(f"  ⚠️  Failed to transcribe")
+                    print(f"  Failed to transcribe")
 
 # Save updated data
 output_file = 'simplified_exam_data_with_transcriptions.json'
 with open(output_file, 'w', encoding='utf-8') as f:
     json.dump(data, f, indent=2, ensure_ascii=False)
 
-print(f"\n✅ Transcription complete!")
-print(f"  • Total audio files: {audio_count}")
-print(f"  • Successfully transcribed: {transcribed_count}")
-print(f"  • Failed: {audio_count - transcribed_count}")
-print(f"\n📄 Updated data saved to: {output_file}")
-print(f"🎵 Audio files saved in: {audio_dir}/")
+print(f"\nTranscription complete!")
+print(f"  - Total audio files: {audio_count}")
+print(f"  - Successfully transcribed: {transcribed_count}")
+print(f"  - Failed: {audio_count - transcribed_count}")
+print(f"\nUpdated data saved to: {output_file}")
+print(f"Audio files saved in: {audio_dir}/")
