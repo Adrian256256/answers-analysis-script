@@ -117,11 +117,11 @@ def create_user_csv(user_id, data, output_dir='user_csvs'):
         if 'writtenQuestionIds' in user_data:
             writer.writerow(['Written Question IDs', ', '.join(user_data['writtenQuestionIds'])])
         
-        writer.writerow([])  # Linie goală
+        writer.writerow(['', ''])  # Linie goală cu 2 coloane
         
         # Răspunsuri
         if 'answers' in user_data and user_data['answers']:
-            writer.writerow(['ANSWERS DETAILS'])
+            writer.writerow(['ANSWERS DETAILS', ''])
             writer.writerow(['Question ID', 'Answer Type', 'User Answer (Text)', 'Audio URL', 
                            'Transcription', 'Time to Answer', 'Answered At', 'Question Displayed At', 'Audio Duration'])
             
