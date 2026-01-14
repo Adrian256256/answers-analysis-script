@@ -1,147 +1,0 @@
-/Users/adrian/Documents/Facultate/MPS/answers-analysis-script/.venv/lib/python3.14/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-⚠️  SpeechRecognition not installed. Run: pip install SpeechRecognition
-Loading data from final.json...
-
-📊 Found 74 audio answers to transcribe
-
-🎤 Using transcription method: Whisper (offline) - TINY model (fastest)
-
-📥 Loading Whisper model (this may take a moment on first run)...
-✅ Whisper model loaded!
-
-============================================================
-Processing users in examProgress...
-============================================================
-
-👤 User: 2et8mPBfSobMEflsrjHP...
-  🎵 section1_accomodation_Q3:
-    Downloading audio...
-    Transcribing with Whisper...
-  0%|          | 0/213 [00:00<?, ?frames/s]100%|██████████| 213/213 [00:00<00:00, 416.49frames/s]100%|██████████| 213/213 [00:00<00:00, 416.38frames/s]
-/Users/adrian/Documents/Facultate/MPS/answers-analysis-script/.venv/lib/python3.14/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-    ✅ Transcribed: 'to these真lyIN.'
-
-👤 User: 2jx38lBdkJZAffOTjapI...
-
-👤 User: I95XongADMhnGoykzUkc...
-
-============================================================
-Processing users in examResults...
-============================================================
-
-👤 User: 1KznrIROVcQisRpGQw0k...
-  🎵 section1_accomodation_Q3:
-    Using existing audio file
-    Transcribing with Whisper...
-  0%|          | 0/265 [00:00<?, ?frames/s]100%|██████████| 265/265 [00:00<00:00, 445.04frames/s]100%|██████████| 265/265 [00:00<00:00, 444.97frames/s]
-/Users/adrian/Documents/Facultate/MPS/answers-analysis-script/.venv/lib/python3.14/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-    ✅ Transcribed: 'understand zwar, so ggcomc on parametertify, and then follow...'
-  🎵 section3_control_Q11:
-    Downloading audio...
-    Transcribing with Whisper...
-  0%|          | 0/256 [00:00<?, ?frames/s]100%|██████████| 256/256 [00:00<00:00, 3307.78frames/s]
-/Users/adrian/Documents/Facultate/MPS/answers-analysis-script/.venv/lib/python3.14/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-    ✅ Transcribed: 'merge sort.'
-  🎵 section3_control_Q5:
-    Downloading audio...
-    Transcribing with Whisper...
-  0%|          | 0/224 [00:00<?, ?frames/s]100%|██████████| 224/224 [00:00<00:00, 2495.59frames/s]
-/Users/adrian/Documents/Facultate/MPS/answers-analysis-script/.venv/lib/python3.14/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-    ✅ Transcribed: 'delete.'
-  🎵 section3_control_Q7:
-    Downloading audio...
-    Transcribing with Whisper...
-  0%|          | 0/265 [00:00<?, ?frames/s]100%|██████████| 265/265 [00:00<00:00, 3061.32frames/s]
-/Users/adrian/Documents/Facultate/MPS/answers-analysis-script/.venv/lib/python3.14/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-    ✅ Transcribed: 'polymorphism.'
-  🎵 section3_standard_Q11:
-    Downloading audio...
-    Transcribing with Whisper...
-  0%|          | 0/284 [00:00<?, ?frames/s]100%|██████████| 284/284 [00:00<00:00, 3476.17frames/s]
-/Users/adrian/Documents/Facultate/MPS/answers-analysis-script/.venv/lib/python3.14/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-    ✅ Transcribed: 'insertion sort.'
-  🎵 section3_standard_Q4:
-    Downloading audio...
-    Transcribing with Whisper...
-  0%|          | 0/322 [00:00<?, ?frames/s]100%|██████████| 322/322 [00:00<00:00, 4023.04frames/s]
-/Users/adrian/Documents/Facultate/MPS/answers-analysis-script/.venv/lib/python3.14/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-    ✅ Transcribed: 'white area network.'
-  🎵 section3_standard_Q5:
-    Downloading audio...
-    Transcribing with Whisper...
-  0%|          | 0/205 [00:00<?, ?frames/s]100%|██████████| 205/205 [00:00<00:00, 394.03frames/s]100%|██████████| 205/205 [00:00<00:00, 393.96frames/s]
-/Users/adrian/Documents/Facultate/MPS/answers-analysis-script/.venv/lib/python3.14/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-    ✅ Transcribed: 'Neo.'
-
-👤 User: 3SZBa8bz71cc3n0GqPIe...
-  🎵 section1_accomodation_Q3:
-    Downloading audio...
-    Transcribing with Whisper...
-  0%|          | 0/234 [00:00<?, ?frames/s]100%|██████████| 234/234 [00:00<00:00, 3192.01frames/s]
-/Users/adrian/Documents/Facultate/MPS/answers-analysis-script/.venv/lib/python3.14/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-    ✅ Transcribed: 'and the'
-  🎵 section3_control_Q12:
-    Downloading audio...
-    Transcribing with Whisper...
-  0%|          | 0/204 [00:00<?, ?frames/s]100%|██████████| 204/204 [00:00<00:00, 2562.71frames/s]
-/Users/adrian/Documents/Facultate/MPS/answers-analysis-script/.venv/lib/python3.14/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-    ✅ Transcribed: 'grid algorithm.'
-  🎵 section3_standard_Q1:
-    Downloading audio...
-    Transcribing with Whisper...
-  0%|          | 0/294 [00:00<?, ?frames/s]100%|██████████| 294/294 [00:00<00:00, 3487.13frames/s]
-/Users/adrian/Documents/Facultate/MPS/answers-analysis-script/.venv/lib/python3.14/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-    ✅ Transcribed: 'and the amount of questions.'
-  🎵 section3_standard_Q10:
-    Downloading audio...
-    Transcribing with Whisper...
-  0%|          | 0/264 [00:00<?, ?frames/s]100%|██████████| 264/264 [00:00<00:00, 491.22frames/s]100%|██████████| 264/264 [00:00<00:00, 491.13frames/s]
-/Users/adrian/Documents/Facultate/MPS/answers-analysis-script/.venv/lib/python3.14/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-    ✅ Transcribed: 'In here before'
-  🎵 section3_standard_Q12:
-    Downloading audio...
-    Transcribing with Whisper...
-  0%|          | 0/150 [00:00<?, ?frames/s]100%|██████████| 150/150 [00:00<00:00, 304.35frames/s]100%|██████████| 150/150 [00:00<00:00, 304.29frames/s]
-/Users/adrian/Documents/Facultate/MPS/answers-analysis-script/.venv/lib/python3.14/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-    ✅ Transcribed: 'theftlessly.'
-  🎵 section3_standard_Q2:
-    Downloading audio...
-    Transcribing with Whisper...
-  0%|          | 0/270 [00:00<?, ?frames/s]100%|██████████| 270/270 [00:00<00:00, 503.12frames/s]100%|██████████| 270/270 [00:00<00:00, 503.02frames/s]
-/Users/adrian/Documents/Facultate/MPS/answers-analysis-script/.venv/lib/python3.14/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-    ✅ Transcribed: 'stamp occult.'
-  🎵 section3_standard_Q7:
-    Downloading audio...
-    Transcribing with Whisper...
-  0%|          | 0/174 [00:00<?, ?frames/s]100%|██████████| 174/174 [00:00<00:00, 372.99frames/s]100%|██████████| 174/174 [00:00<00:00, 372.91frames/s]
-/Users/adrian/Documents/Facultate/MPS/answers-analysis-script/.venv/lib/python3.14/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-    ✅ Transcribed: 'parameters or Basic.'
-
-👤 User: 7fRvTWeoKDPE5ZqfcBwp...
-  🎵 section1_accomodation_Q3:
-    Downloading audio...
-    Transcribing with Whisper...
-  0%|          | 0/300 [00:00<?, ?frames/s]100%|██████████| 300/300 [00:00<00:00, 3519.11frames/s]
-/Users/adrian/Documents/Facultate/MPS/answers-analysis-script/.venv/lib/python3.14/site-packages/whisper/transcribe.py:132: UserWarning: FP16 is not supported on CPU; using FP32 instead
-  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
-    ✅ Transcribed: 'force of the chain worry.'
-  🎵 section3_control_Q11:
-    Downloading audio...
-    Transcribing with Whisper...
-  0%|          | 0/366 [00:00<?, ?frames/s]

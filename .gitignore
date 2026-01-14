@@ -1,10 +1,18 @@
 # Exclude the exported JSON files (source data)
 exametric-439ba-default-rtdb-export _new.json
 final.json
+final_with_transcriptions.json
 
 # Generated files
 graphs/
 audio_files/
+user_csvs/
+statistics_all_users.csv
+
+# Temporary/test files
+test_*.py
+transcription_*.log
+*.log
 
 # Python
 __pycache__/

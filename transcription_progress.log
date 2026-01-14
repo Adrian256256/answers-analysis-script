@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/adrian/Documents/Facultate/MPS/answers-analysis-script/transcribe_audio.py", line 3, in <module>
-    import requests
-ModuleNotFoundError: No module named 'requests'
