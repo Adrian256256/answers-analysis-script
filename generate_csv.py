@@ -17,6 +17,14 @@ def load_data():
         with open('final.json', 'r', encoding='utf-8') as f:
             return json.load(f)
 
+def load_questions():
+    """Încarcă maparea întrebărilor din questions_map.json"""
+    import os
+    if os.path.exists('questions_map.json'):
+        with open('questions_map.json', 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return {}
+
 def ms_to_time_format(ms):
     """Convertește milisecunde în format mm:ss"""
     if not ms or ms == 0:
@@ -55,7 +63,7 @@ def get_user_email(user_id, data):
     user_info = users.get(user_id, {})
     return user_info.get('email', 'N/A')
 
-def create_user_csv(user_id, data, output_dir='user_csvs'):
+def create_user_csv(user_id, data, questions_map, output_dir='user_csvs'):
     """Creează un CSV pentru un user specific"""
     os.makedirs(output_dir, exist_ok=True)
     
@@ -122,11 +130,14 @@ def create_user_csv(user_id, data, output_dir='user_csvs'):
         # Răspunsuri
         if 'answers' in user_data and user_data['answers']:
             writer.writerow(['ANSWERS DETAILS', ''])
-            writer.writerow(['Question ID', 'Answer Type', 'User Answer (Text)', 'Audio URL', 
+            writer.writerow(['Question ID', 'Question Text', 'Answer Type', 'User Answer (Text)', 'Audio URL', 
                            'Transcription', 'Time to Answer', 'Answered At', 'Question Displayed At', 'Audio Duration'])
             
             for question_id, answer in sorted(user_data['answers'].items()):
                 answer_type = 'Audio' if 'audioUrl' in answer else 'Text'
+                
+                # Obține textul întrebării
+                question_text = questions_map.get(question_id, 'N/A')
                 
                 # Pentru text - pune în coloana "User Answer (Text)"
                 # Pentru audio - pune URL și transcripție separate
@@ -143,6 +154,7 @@ def create_user_csv(user_id, data, output_dir='user_csvs'):
                 
                 writer.writerow([
                     question_id,
+                    question_text,
                     answer_type,
                     user_text,
                     audio_url,
@@ -344,11 +356,15 @@ def main():
     print('Loading data from final.json...')
     data = load_data()
     
+    print('Loading questions map...')
+    questions_map = load_questions()
+    print(f'✅ Loaded {len(questions_map)} questions\n')
+    
     print('\nGenerating individual user CSVs...')
     exam_progress = data.get('examProgress', {})
     
     for user_id in exam_progress.keys():
-        create_user_csv(user_id, data)
+        create_user_csv(user_id, data, questions_map)
     
     print(f'\nTotal users processed: {len(exam_progress)}')
     

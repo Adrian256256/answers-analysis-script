@@ -46,8 +46,12 @@ def transcribe_with_whisper(audio_path, model):
         result = model.transcribe(
             str(audio_path),
             language="en",  # Force English for better technical term recognition
-            initial_prompt="Computer science technical exam answer. Common terms: merge sort, heap sort, bubble sort, quick sort, polymorphism, inheritance, encapsulation, network, algorithm, data structure, binary tree, hash table, complexity, recursion",
-            verbose=False  # Don't print progress bar
+            initial_prompt="Computer science exam. Technical terms: merge sort, heap sort, bubble sort, quick sort, insertion sort, binary search, linear search, polymorphism, inheritance, encapsulation, overloading, overriding, RAM, ROM, DRAM, SRAM, CPU, ALU, cache, control unit, LAN, WAN, network, router, switch, HTTP, HTTPS, port, binary, algorithm, data structure, queue, stack, tree, graph, complexity, Big O notation, SQL, WHERE, TRUNCATE.",
+            verbose=False,  # Don't print progress bar
+            temperature=0.0,  # More deterministic (less creative guessing)
+            beam_size=5,  # Better beam search for accuracy
+            best_of=5,  # Consider multiple candidates
+            fp16=False  # Use FP32 for better accuracy on CPU
         )
         return result["text"].strip()
     except Exception as e:
@@ -104,14 +108,15 @@ if not WHISPER_AVAILABLE and not SR_AVAILABLE:
     print("  2. SpeechRecognition: pip install SpeechRecognition")
     exit(1)
 
-print(f"🎤 Using transcription method: {'Whisper (offline) - TINY model (fastest)' if WHISPER_AVAILABLE else 'Google Speech Recognition (online)'}\n")
+print(f"🎤 Using transcription method: {'Whisper (offline) - BASE model (better accuracy)' if WHISPER_AVAILABLE else 'Google Speech Recognition (online)'}\n")
 
 # Load Whisper model once if available
 whisper_model = None
 if WHISPER_AVAILABLE:
-    print("📥 Loading Whisper model (this may take a moment on first run)...")
+    print("📥 Loading Whisper model (this may take a moment)...")
+    print("   Using 'base' model for better accuracy (vs 'tiny' which is faster but less accurate)")
     try:
-        whisper_model = whisper.load_model("tiny")  # Fastest model
+        whisper_model = whisper.load_model("base")  # base model - good balance
         print("✅ Whisper model loaded!\n")
     except Exception as e:
         print(f"❌ Failed to load Whisper model: {e}")
