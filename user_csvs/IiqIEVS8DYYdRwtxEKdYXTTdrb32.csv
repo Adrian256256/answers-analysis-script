@@ -1,0 +1,32 @@
+Metric,Value
+Email,user334027@exam.org
+Submission Time,2026-01-04 15:50:47
+Answered Count,22
+Total Questions,25
+Time Spent,17:58
+Tab Change Count,0
+
+ANSWERS DETAILS
+Question ID,Answer Type,User Answer (Text),Audio URL,Transcription,Time to Answer,Answered At,Question Displayed At,Audio Duration
+section1_accomodation_Q1,Text,23,,,0:07,2026-01-04T15:32:57.350Z,2026-01-04T15:32:49.601Z,
+section1_accomodation_Q2,Text,employee,,,0:08,2026-01-04T15:33:05.746Z,2026-01-04T15:32:57.447Z,
+section1_accomodation_Q3,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FIiqIEVS8DYYdRwtxEKdYXTTdrb32%2Fsection1_accomodation_Q3%2F1767540808858.webm?alt=media&token=176ff7a3-06ff-4b44-81de-dd77e3b5cd81,Today's 4 of the generic Sunday.,0:25,2026-01-04T15:33:31.251Z,2026-01-04T15:33:05.835Z,0:01
+section1_accomodation_Q4,Text,I remember better when I read.,,,0:17,2026-01-04T15:33:48.931Z,2026-01-04T15:33:31.360Z,
+section1_accomodation_Q5,Text,What is your age? ,,,0:14,2026-01-04T15:34:03.275Z,2026-01-04T15:33:49.014Z,
+section2_control_Q11,Text,"Cache memory, registers",,,0:03,2026-01-04T15:48:31.905Z,2026-01-04T15:48:28.630Z,
+section2_control_Q2,Text,"ROM, SSD, HDD",,,0:31,2026-01-04T15:37:25.959Z,2026-01-04T15:36:54.199Z,
+section2_control_Q6,Text,Layer 4 - Transport,,,0:57,2026-01-04T15:38:23.743Z,2026-01-04T15:37:26.053Z,
+section2_control_Q7,Text,HTTPS,,,0:26,2026-01-04T15:38:50.489Z,2026-01-04T15:38:23.856Z,
+section2_control_Q8,Text,443,,,0:28,2026-01-04T15:39:18.759Z,2026-01-04T15:38:50.591Z,
+section2_standard_Q2,Text,"RAM, Cache",,,0:40,2026-01-04T15:34:44.357Z,2026-01-04T15:34:03.370Z,
+section2_standard_Q6,Text,Layer 3 - Network,,,0:07,2026-01-04T15:35:58.126Z,2026-01-04T15:35:50.988Z,
+section2_standard_Q7,Text,SFTP,,,0:32,2026-01-04T15:36:30.952Z,2026-01-04T15:35:58.216Z,
+section2_standard_Q8,Text,80,,,0:16,2026-01-04T15:36:47.694Z,2026-01-04T15:36:31.042Z,
+section3_control_Q10,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FIiqIEVS8DYYdRwtxEKdYXTTdrb32%2Fsection3_control_Q10%2F1767541633387.webm?alt=media&token=12c0d628-3ea2-4db9-800f-7aa908ffcb1b,"run, robbing scheduling.",0:49,2026-01-04T15:47:14.767Z,2026-01-04T15:46:25.035Z,0:04
+section3_control_Q11,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FIiqIEVS8DYYdRwtxEKdYXTTdrb32%2Fsection3_control_Q11%2F1767541693004.webm?alt=media&token=973cc208-344f-44e6-9825-546d921756bc,recursion.,0:59,2026-01-04T15:48:14.162Z,2026-01-04T15:47:14.878Z,0:03
+section3_control_Q2,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FIiqIEVS8DYYdRwtxEKdYXTTdrb32%2Fsection3_control_Q2%2F1767541386961.webm?alt=media&token=12d1d7f1-af18-4515-ae75-c8215aab09be,virtual private network.,0:32,2026-01-04T15:43:08.358Z,2026-01-04T15:42:35.997Z,0:02
+section3_control_Q4,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FIiqIEVS8DYYdRwtxEKdYXTTdrb32%2Fsection3_control_Q4%2F1767541403923.webm?alt=media&token=b6d27bb2-4e81-462b-b26a-02e756a5eaff,local area network.,0:16,2026-01-04T15:43:24.815Z,2026-01-04T15:43:08.453Z,0:02
+section3_standard_Q11,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FIiqIEVS8DYYdRwtxEKdYXTTdrb32%2Fsection3_standard_Q11%2F1767541825656.webm?alt=media&token=7e8c6e87-6755-4175-b1ed-96a2698a1c19,bubble sorting.,0:09,2026-01-04T15:50:26.966Z,2026-01-04T15:50:17.452Z,0:04
+section3_standard_Q2,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FIiqIEVS8DYYdRwtxEKdYXTTdrb32%2Fsection3_standard_Q2%2F1767541780077.webm?alt=media&token=352cd75e-af38-47a7-8078-8f8bdb58fb67,medium access control.,1:09,2026-01-04T15:49:41.613Z,2026-01-04T15:48:31.979Z,0:02
+section3_standard_Q4,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FIiqIEVS8DYYdRwtxEKdYXTTdrb32%2Fsection3_standard_Q4%2F1767541793693.webm?alt=media&token=8183fa15-9779-48cf-b824-2219719c2fbf,wide area network.,0:12,2026-01-04T15:49:54.711Z,2026-01-04T15:49:41.749Z,0:02
+section3_standard_Q9,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FIiqIEVS8DYYdRwtxEKdYXTTdrb32%2Fsection3_standard_Q9%2F1767541805368.webm?alt=media&token=5ec50a3a-977d-4a34-aec0-ba47b12afdf1,stack.,0:11,2026-01-04T15:50:06.182Z,2026-01-04T15:49:54.818Z,0:03

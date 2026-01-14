@@ -1,5 +1,6 @@
-# Exclude the exported JSON file (source data)
+# Exclude the exported JSON files (source data)
 exametric-439ba-default-rtdb-export _new.json
+final.json
 
 # Generated files
 graphs/

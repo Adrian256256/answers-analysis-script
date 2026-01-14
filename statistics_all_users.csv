@@ -1,0 +1,45 @@
+=== GENERAL STATISTICS ===
+Metric,Value
+Total Users,16
+
+Total Answers,242
+Total Text Answers,168
+Total Audio Answers,74
+Text vs Audio Ratio,2.27:1
+
+Average Time to Answer - Overall,0:24
+Average Time to Answer - Text,0:17
+Average Time to Answer - Audio,0:39
+Audio takes longer than Text by,0:22
+Audio/Text Time Ratio,2.29
+
+Average Tab Changes per User,3.0
+Max Tab Changes,14
+Min Tab Changes,0
+Users with 0 Tab Changes,9
+Users with Tab Changes,6
+
+Total Answered Questions,228
+
+Total Time Spent by All Users,122:43
+Average Time Spent per User,10:13
+
+
+=== INDIVIDUAL USER DATA ===
+User ID,Email,Total Answers,Text Answers,Audio Answers,Average Time to Answer,Tab Changes,Time Spent,Current Section,Submission Time
+1KznrIROVcQisRpGQw0kRF79lEW2,user228962@exam.org,18,11,7,0:24,0,8:46,N/A,2026-01-04 15:03:20
+2et8mPBfSobMEflsrjHPlpbBRVl1,user999117@exam.org,11,10,1,0:15,0,N/A,section3_control,N/A
+2gtbm9fZ3lgaFez20Japr0bRtvy1,user413588@exam.org,0,0,0,N/A,N/A,N/A,section1_accomodation,N/A
+2jx38lBdkJZAffOTjapIJUOkcmT2,user790199@exam.org,1,1,0,0:11,0,N/A,section1_accomodation,N/A
+3SZBa8bz71cc3n0GqPIe0Cp5EC13,user231523@exam.org,21,14,7,0:13,0,5:09,N/A,2026-01-04 10:30:56
+7fRvTWeoKDPE5ZqfcBwpWY3qwpl1,vladioanbirsan@exam.org,25,14,11,0:31,0,14:25,N/A,2026-01-04 13:17:23
+D17ojtCGztVxasDNXMBYujIEp6T2,maxim.vaculenco@exam.org,22,14,8,0:39,3,18:11,N/A,2026-01-05 15:08:51
+I95XongADMhnGoykzUkcFxfx2Zg1,user840795@exam.org,2,2,0,0:07,0,N/A,section1_accomodation,N/A
+IiqIEVS8DYYdRwtxEKdYXTTdrb32,user334027@exam.org,22,13,9,0:26,0,17:58,N/A,2026-01-04 15:50:47
+UZCUMnascqMVCb7HjYKoo8GshmU2,user302995@exam.org,14,14,0,0:07,0,2:10,N/A,2026-01-05 11:14:38
+dwtLwhIgAyQAfqgq6BGgRYDqwdi2,user630936@exam.org,23,14,9,0:38,8,15:37,N/A,2026-01-05 16:58:34
+gc6iaZKC2uO6zKYvXL36lgPsQWL2,user207221@exam.org,14,14,0,0:16,5,4:09,N/A,2025-12-23 09:28:09
+hXKCWwzPgWQ17gIEU9nKwtLaZx73,user205520@exam.org,25,14,11,0:22,4,9:21,N/A,2025-12-18 15:36:43
+kzHpKFHMcPPnV8KAKZX4skbzRlM2,user196039@exam.org,14,14,0,0:25,11,6:34,N/A,2025-12-23 07:55:39
+yWVzDzDXQwWys4aHbPKJV2Oadwy2,user425140@exam.org,25,14,11,0:14,0,9:38,N/A,2026-01-04 21:13:33
+yskSrWOMY1dMfleJ1demTFRwmaB3,user311046@exam.org,5,5,0,0:35,14,10:45,N/A,2026-01-05 17:15:17

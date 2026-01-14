@@ -1,0 +1,35 @@
+Metric,Value
+Email,user425140@exam.org
+Submission Time,2026-01-04 21:13:33
+Answered Count,25
+Total Questions,25
+Time Spent,9:38
+Tab Change Count,0
+
+ANSWERS DETAILS
+Question ID,Answer Type,User Answer (Text),Audio URL,Transcription,Time to Answer,Answered At,Question Displayed At,Audio Duration
+section1_accomodation_Q1,Text,23,,,0:11,2026-01-04T21:04:06.068Z,2026-01-04T21:03:54.897Z,
+section1_accomodation_Q2,Text,student,,,0:03,2026-01-04T21:04:09.848Z,2026-01-04T21:04:06.238Z,
+section1_accomodation_Q3,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FyWVzDzDXQwWys4aHbPKJV2Oadwy2%2Fsection1_accomodation_Q3%2F1767560672620.webm?alt=media&token=1cc64af7-1034-4f66-bb85-d24dc5c45c5f,Sunday.,0:24,2026-01-04T21:04:34.430Z,2026-01-04T21:04:09.940Z,0:01
+section1_accomodation_Q4,Text,I remember better when I hear.,,,0:32,2026-01-04T21:05:07.276Z,2026-01-04T21:04:34.518Z,
+section1_accomodation_Q5,Text,What is your age?,,,0:15,2026-01-04T21:05:22.391Z,2026-01-04T21:05:07.340Z,
+section2_control_Q11,Text,Registers,,,0:00,2026-01-04T21:09:47.831Z,2026-01-04T21:09:47.229Z,
+section2_control_Q12,Text,O(logn),,,0:10,2026-01-04T21:09:58.295Z,2026-01-04T21:09:47.892Z,
+section2_control_Q2,Text,"Non-volatile, SSD, HDD",,,0:00,2026-01-04T21:09:45.894Z,2026-01-04T21:09:45.243Z,
+section2_control_Q8,Text,443,,,0:00,2026-01-04T21:09:46.540Z,2026-01-04T21:09:45.986Z,
+section2_control_Q9,Text,Graph,,,0:00,2026-01-04T21:09:47.168Z,2026-01-04T21:09:46.600Z,
+section2_standard_Q11,Text,Memory Management Unit (MMU),,,0:31,2026-01-04T21:09:43.547Z,2026-01-04T21:09:11.858Z,
+section2_standard_Q12,Text,O(n),,,0:01,2026-01-04T21:09:45.176Z,2026-01-04T21:09:43.609Z,
+section2_standard_Q2,Text,Random Access Memory,,,0:16,2026-01-04T21:05:38.487Z,2026-01-04T21:05:22.450Z,
+section2_standard_Q8,Text,80,,,0:05,2026-01-04T21:05:44.448Z,2026-01-04T21:05:38.551Z,
+section2_standard_Q9,Text,Tree,,,0:07,2026-01-04T21:05:52.108Z,2026-01-04T21:05:44.514Z,
+section3_control_Q12,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FyWVzDzDXQwWys4aHbPKJV2Oadwy2%2Fsection3_control_Q12%2F1767561209489.webm?alt=media&token=4a4a8921-569d-4ff0-9b52-f4a79af008a9,prems algorithm.,0:24,2026-01-04T21:13:30.638Z,2026-01-04T21:13:06.470Z,0:04
+section3_control_Q3,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FyWVzDzDXQwWys4aHbPKJV2Oadwy2%2Fsection3_control_Q3%2F1767561116416.webm?alt=media&token=a01cb8ea-13ee-493e-bb5a-51cc1fd6e2ab,compiler.,0:07,2026-01-04T21:11:57.076Z,2026-01-04T21:11:49.290Z,0:03
+section3_control_Q4,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FyWVzDzDXQwWys4aHbPKJV2Oadwy2%2Fsection3_control_Q4%2F1767561137105.webm?alt=media&token=f06f2375-83af-4902-a4ff-4ff0e8740244,local area network.,0:20,2026-01-04T21:12:17.988Z,2026-01-04T21:11:57.171Z,0:02
+section3_control_Q7,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FyWVzDzDXQwWys4aHbPKJV2Oadwy2%2Fsection3_control_Q7%2F1767561174736.webm?alt=media&token=e98ce41b-1e8c-4755-8953-a2e1e6c0206d,polymorphism.,0:37,2026-01-04T21:12:56.039Z,2026-01-04T21:12:18.079Z,0:04
+section3_control_Q9,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FyWVzDzDXQwWys4aHbPKJV2Oadwy2%2Fsection3_control_Q9%2F1767561185283.webm?alt=media&token=29df96e8-0847-437e-9d6a-7decc8674cf5,and stack elinkc power.,0:10,2026-01-04T21:13:06.380Z,2026-01-04T21:12:56.193Z,0:03
+section3_standard_Q12,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FyWVzDzDXQwWys4aHbPKJV2Oadwy2%2Fsection3_standard_Q12%2F1767561108404.webm?alt=media&token=554bd4ca-595b-42c6-8455-298ae47856ff,"data structure, algorithm.",0:08,2026-01-04T21:11:49.206Z,2026-01-04T21:11:40.681Z,0:03
+section3_standard_Q3,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FyWVzDzDXQwWys4aHbPKJV2Oadwy2%2Fsection3_standard_Q3%2F1767561045443.webm?alt=media&token=65fcd77a-7cdb-457e-a2c7-5bcbb7723b4e,driver.,0:48,2026-01-04T21:10:46.805Z,2026-01-04T21:09:58.357Z,0:02
+section3_standard_Q4,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FyWVzDzDXQwWys4aHbPKJV2Oadwy2%2Fsection3_standard_Q4%2F1767561058526.webm?alt=media&token=a82c993a-bae4-478f-ba5d-cb54c06043e0,wide array and network.,0:13,2026-01-04T21:11:00.007Z,2026-01-04T21:10:46.902Z,0:02
+section3_standard_Q7,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FyWVzDzDXQwWys4aHbPKJV2Oadwy2%2Fsection3_standard_Q7%2F1767561078042.webm?alt=media&token=2b799cdf-c6e4-4e8c-abed-48ec44e6d62f,abstraction.,0:18,2026-01-04T21:11:19.054Z,2026-01-04T21:11:00.088Z,0:03
+section3_standard_Q9,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FyWVzDzDXQwWys4aHbPKJV2Oadwy2%2Fsection3_standard_Q9%2F1767561099565.webm?alt=media&token=6a50f9f2-c7df-4e3b-aaf5-7d923edf4ae2,Thank you.,0:21,2026-01-04T21:11:40.589Z,2026-01-04T21:11:19.146Z,0:03

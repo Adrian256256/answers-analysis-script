@@ -1,0 +1,24 @@
+Metric,Value
+Email,user207221@exam.org
+Submission Time,2025-12-23 09:28:09
+Answered Count,14
+Total Questions,25
+Time Spent,4:09
+Tab Change Count,5
+
+ANSWERS DETAILS
+Question ID,Answer Type,User Answer (Text),Audio URL,Transcription,Time to Answer,Answered At,Question Displayed At,Audio Duration
+section1_accomodation_Q1,Text,22,,,0:15,2025-12-23T09:24:15.022Z,2025-12-23T09:23:59.939Z,
+section1_accomodation_Q2,Text,student,,,0:02,2025-12-23T09:24:18.116Z,2025-12-23T09:24:15.132Z,
+section1_accomodation_Q4,Text,I remember better when I hear.,,,0:12,2025-12-23T09:24:34.655Z,2025-12-23T09:24:22.203Z,
+section1_accomodation_Q5,Text,What is your age?,,,0:11,2025-12-23T09:24:46.391Z,2025-12-23T09:24:34.746Z,
+section2_control_Q1,Text,Binary,,,0:23,2025-12-23T09:26:54.675Z,2025-12-23T09:26:31.286Z,
+section2_control_Q10,Text,DELETE,,,0:24,2025-12-23T09:27:34.035Z,2025-12-23T09:27:09.558Z,
+section2_control_Q12,Text,O(log N),,,0:24,2025-12-23T09:27:58.304Z,2025-12-23T09:27:34.141Z,
+section2_control_Q2,Text,ROM,,,0:05,2025-12-23T09:26:59.984Z,2025-12-23T09:26:54.767Z,
+section2_control_Q5,Text,NOT,,,0:09,2025-12-23T09:27:09.451Z,2025-12-23T09:27:00.078Z,
+section2_standard_Q1,Text,8,,,0:06,2025-12-23T09:24:52.629Z,2025-12-23T09:24:46.473Z,
+section2_standard_Q10,Text,WHERE,,,0:31,2025-12-23T09:26:20.492Z,2025-12-23T09:25:48.983Z,
+section2_standard_Q12,Text,O(N),,,0:10,2025-12-23T09:26:31.188Z,2025-12-23T09:26:20.585Z,
+section2_standard_Q2,Text,RAM,,,0:47,2025-12-23T09:25:40.686Z,2025-12-23T09:24:52.789Z,
+section2_standard_Q5,Text,AND,,,0:08,2025-12-23T09:25:48.884Z,2025-12-23T09:25:40.769Z,
