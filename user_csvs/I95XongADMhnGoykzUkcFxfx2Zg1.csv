@@ -1,13 +1,13 @@
 Metric,Value
 Email,user840795@exam.org
-Start Time,2026-01-04 17:21:05
+Start Time (Date/Time),2026-01-04 17:21:05
 Current Section,section1_accomodation
 Current Question Index,3
-Tab Change Count,0
+Tab Change Count (Total),0
 Audio Question IDs,"Q8, Q6, Q9, Q7, Q4"
 Written Question IDs,"Q3, Q1, Q2, Q11, Q5"
 ,
 ANSWERS DETAILS,
-Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription,Time to Answer,Answered At,Question Displayed At,Audio Duration
+Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription (Audio Answers),Time to Answer (mm:ss),Answered At (Timestamp),Question Displayed At (Timestamp),Audio Question Duration (mm:ss)
 section1_accomodation_Q1,What is your age?,Text,23,,,0:08,2026-01-04T15:21:13.928Z,2026-01-04T15:21:05.507Z,
 section1_accomodation_Q2,Choose what best describes you:,Text,student,,,0:06,2026-01-04T15:21:19.994Z,2026-01-04T15:21:13.986Z,

@@ -1,32 +1,32 @@
 === GENERAL STATISTICS ===
 Metric,Value
-Total Users,16
+Total Users (Count),16
 
-Total Answers,242
-Total Text Answers,168
-Total Audio Answers,74
+Total Answers (Count),242
+Total Text Answers (Count),168
+Total Audio Answers (Count),74
 Text vs Audio Ratio,2.27:1
 
-Average Time to Answer - Overall,0:24
-Average Time to Answer - Text,0:17
-Average Time to Answer - Audio,0:39
-Audio takes longer than Text by,0:22
+Average Time to Answer - Overall (mm:ss),0:24
+Average Time to Answer - Text (mm:ss),0:17
+Average Time to Answer - Audio (mm:ss),0:39
+Audio takes longer than Text by (mm:ss),0:22
 Audio/Text Time Ratio,2.29
 
-Average Tab Changes per User,3.0
-Max Tab Changes,14
-Min Tab Changes,0
-Users with 0 Tab Changes,9
-Users with Tab Changes,6
+Average Tab Changes per User (Count),3.0
+Max Tab Changes (Count),14
+Min Tab Changes (Count),0
+Users with 0 Tab Changes (Count),9
+Users with Tab Changes (Count),6
 
-Total Answered Questions,228
+Total Answered Questions (Count),228
 
-Total Time Spent by All Users,122:43
-Average Time Spent per User,10:13
+Total Time Spent by All Users (mm:ss),122:43
+Average Time Spent per User (mm:ss),10:13
 
 
 === INDIVIDUAL USER DATA ===
-User ID,Email,Total Answers,Text Answers,Audio Answers,Average Time to Answer,Tab Changes,Time Spent,Current Section,Submission Time
+User ID,Email,Total Answers (Count),Text Answers (Count),Audio Answers (Count),Average Time to Answer (mm:ss),Tab Changes (Count),Time Spent (mm:ss),Current Section,Submission Time (Date/Time)
 1KznrIROVcQisRpGQw0kRF79lEW2,user228962@exam.org,18,11,7,0:24,0,8:46,N/A,2026-01-04 15:03:20
 2et8mPBfSobMEflsrjHPlpbBRVl1,user999117@exam.org,11,10,1,0:15,0,N/A,section3_control,N/A
 2gtbm9fZ3lgaFez20Japr0bRtvy1,user413588@exam.org,0,0,0,N/A,N/A,N/A,section1_accomodation,N/A

@@ -1,13 +1,13 @@
 Metric,Value
 Email,user207221@exam.org
-Submission Time,2025-12-23 09:28:09
-Answered Count,14
-Total Questions,25
-Time Spent,4:09
-Tab Change Count,5
+Submission Time (Date/Time),2025-12-23 09:28:09
+Answered Count (Total),14
+Total Questions (Count),25
+Time Spent (mm:ss),4:09
+Tab Change Count (Total),5
 ,
 ANSWERS DETAILS,
-Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription,Time to Answer,Answered At,Question Displayed At,Audio Duration
+Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription (Audio Answers),Time to Answer (mm:ss),Answered At (Timestamp),Question Displayed At (Timestamp),Audio Question Duration (mm:ss)
 section1_accomodation_Q1,What is your age?,Text,22,,,0:15,2025-12-23T09:24:15.022Z,2025-12-23T09:23:59.939Z,
 section1_accomodation_Q2,Choose what best describes you:,Text,student,,,0:02,2025-12-23T09:24:18.116Z,2025-12-23T09:24:15.132Z,
 section1_accomodation_Q4,"Would you say you remember information better when you hear it or when you see it (for example, by reading or looking at images)?",Text,I remember better when I hear.,,,0:12,2025-12-23T09:24:34.655Z,2025-12-23T09:24:22.203Z,

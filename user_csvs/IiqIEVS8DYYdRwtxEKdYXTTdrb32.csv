@@ -1,13 +1,13 @@
 Metric,Value
 Email,user334027@exam.org
-Submission Time,2026-01-04 15:50:47
-Answered Count,22
-Total Questions,25
-Time Spent,17:58
-Tab Change Count,0
+Submission Time (Date/Time),2026-01-04 15:50:47
+Answered Count (Total),22
+Total Questions (Count),25
+Time Spent (mm:ss),17:58
+Tab Change Count (Total),0
 ,
 ANSWERS DETAILS,
-Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription,Time to Answer,Answered At,Question Displayed At,Audio Duration
+Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription (Audio Answers),Time to Answer (mm:ss),Answered At (Timestamp),Question Displayed At (Timestamp),Audio Question Duration (mm:ss)
 section1_accomodation_Q1,What is your age?,Text,23,,,0:07,2026-01-04T15:32:57.350Z,2026-01-04T15:32:49.601Z,
 section1_accomodation_Q2,Choose what best describes you:,Text,employee,,,0:08,2026-01-04T15:33:05.746Z,2026-01-04T15:32:57.447Z,
 section1_accomodation_Q3,What day is it today?,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FIiqIEVS8DYYdRwtxEKdYXTTdrb32%2Fsection1_accomodation_Q3%2F1767540808858.webm?alt=media&token=176ff7a3-06ff-4b44-81de-dd77e3b5cd81,"Today is 4th of the January, Sunday.",0:25,2026-01-04T15:33:31.251Z,2026-01-04T15:33:05.835Z,0:01

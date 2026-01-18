@@ -1,13 +1,13 @@
 Metric,Value
 Email,maxim.vaculenco@exam.org
-Submission Time,2026-01-05 15:08:51
-Answered Count,22
-Total Questions,25
-Time Spent,18:11
-Tab Change Count,3
+Submission Time (Date/Time),2026-01-05 15:08:51
+Answered Count (Total),22
+Total Questions (Count),25
+Time Spent (mm:ss),18:11
+Tab Change Count (Total),3
 ,
 ANSWERS DETAILS,
-Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription,Time to Answer,Answered At,Question Displayed At,Audio Duration
+Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription (Audio Answers),Time to Answer (mm:ss),Answered At (Timestamp),Question Displayed At (Timestamp),Audio Question Duration (mm:ss)
 section1_accomodation_Q1,What is your age?,Text,22,,,0:04,2026-01-05T14:50:45.022Z,2026-01-05T14:50:40.106Z,
 section1_accomodation_Q2,Choose what best describes you:,Text,student,,,0:05,2026-01-05T14:50:50.089Z,2026-01-05T14:50:45.079Z,
 section1_accomodation_Q3,What day is it today?,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FD17ojtCGztVxasDNXMBYujIEp6T2%2Fsection1_accomodation_Q3%2F1767624729064.webm?alt=media&token=31ff2183-bc6c-4dcc-9586-5ad33ac59d5a,Today it's Monday.,1:20,2026-01-05T14:52:10.319Z,2026-01-05T14:50:50.137Z,0:01

@@ -1,13 +1,13 @@
 Metric,Value
 Email,user231523@exam.org
-Submission Time,2026-01-04 10:30:56
-Answered Count,21
-Total Questions,25
-Time Spent,5:09
-Tab Change Count,0
+Submission Time (Date/Time),2026-01-04 10:30:56
+Answered Count (Total),21
+Total Questions (Count),25
+Time Spent (mm:ss),5:09
+Tab Change Count (Total),0
 ,
 ANSWERS DETAILS,
-Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription,Time to Answer,Answered At,Question Displayed At,Audio Duration
+Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription (Audio Answers),Time to Answer (mm:ss),Answered At (Timestamp),Question Displayed At (Timestamp),Audio Question Duration (mm:ss)
 section1_accomodation_Q1,What is your age?,Text,24,,,0:22,2026-01-04T10:26:09.957Z,2026-01-04T10:25:47.298Z,
 section1_accomodation_Q2,Choose what best describes you:,Text,working student,,,0:07,2026-01-04T10:26:18.155Z,2026-01-04T10:26:10.170Z,
 section1_accomodation_Q3,What day is it today?,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2F3SZBa8bz71cc3n0GqPIe0Cp5EC13%2Fsection1_accomodation_Q3%2F1767522411688.webm?alt=media&token=4f7bab90-0f85-4443-81d0-f427e7842ddc,"Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday, Monday",0:35,2026-01-04T10:26:54.085Z,2026-01-04T10:26:18.371Z,0:02

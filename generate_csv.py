@@ -93,21 +93,21 @@ def create_user_csv(user_id, data, questions_map, output_dir='user_csvs'):
         # Timestamp final (dacă există)
         if 'timestamp' in user_data:
             submit_time = datetime.fromisoformat(user_data['timestamp'].replace('Z', '+00:00'))
-            writer.writerow(['Submission Time', submit_time.strftime('%Y-%m-%d %H:%M:%S')])
+            writer.writerow(['Submission Time (Date/Time)', submit_time.strftime('%Y-%m-%d %H:%M:%S')])
         
         # Rezultate (fără correct answers și scor)
         if 'answeredCount' in user_data:
-            writer.writerow(['Answered Count', user_data['answeredCount']])
+            writer.writerow(['Answered Count (Total)', user_data['answeredCount']])
         if 'totalQuestions' in user_data:
-            writer.writerow(['Total Questions', user_data['totalQuestions']])
+            writer.writerow(['Total Questions (Count)', user_data['totalQuestions']])
         if 'timeSpent' in user_data:
             time_spent_formatted = seconds_to_time_format(user_data['timeSpent'])
-            writer.writerow(['Time Spent', time_spent_formatted])
+            writer.writerow(['Time Spent (mm:ss)', time_spent_formatted])
         
         # Informații generale (pentru userii in progress)
         if 'startTimestamp' in user_data:
             start_time = datetime.fromtimestamp(user_data['startTimestamp'] / 1000)
-            writer.writerow(['Start Time', start_time.strftime('%Y-%m-%d %H:%M:%S')])
+            writer.writerow(['Start Time (Date/Time)', start_time.strftime('%Y-%m-%d %H:%M:%S')])
         
         if 'currentSection' in user_data:
             writer.writerow(['Current Section', user_data['currentSection']])
@@ -116,7 +116,7 @@ def create_user_csv(user_id, data, questions_map, output_dir='user_csvs'):
             writer.writerow(['Current Question Index', user_data['currentQuestionIndex']])
         
         if 'tabChangeCount' in user_data:
-            writer.writerow(['Tab Change Count', user_data['tabChangeCount']])
+            writer.writerow(['Tab Change Count (Total)', user_data['tabChangeCount']])
         
         # Întrebări audio și written
         if 'audioQuestionIds' in user_data:
@@ -131,7 +131,8 @@ def create_user_csv(user_id, data, questions_map, output_dir='user_csvs'):
         if 'answers' in user_data and user_data['answers']:
             writer.writerow(['ANSWERS DETAILS', ''])
             writer.writerow(['Question ID', 'Question Text', 'Answer Type', 'User Answer (Text)', 'Audio URL', 
-                           'Transcription', 'Time to Answer', 'Answered At', 'Question Displayed At', 'Audio Duration'])
+                           'Transcription (Audio Answers)', 'Time to Answer (mm:ss)', 'Answered At (Timestamp)', 
+                           'Question Displayed At (Timestamp)', 'Audio Question Duration (mm:ss)'])
             
             for question_id, answer in sorted(user_data['answers'].items()):
                 answer_type = 'Audio' if 'audioUrl' in answer else 'Text'
@@ -230,52 +231,52 @@ def create_statistics_csv(data, output_file='statistics_all_users.csv'):
         # Scrie statisticile generale
         writer.writerow(['=== GENERAL STATISTICS ==='])
         writer.writerow(['Metric', 'Value'])
-        writer.writerow(['Total Users', total_users])
+        writer.writerow(['Total Users (Count)', total_users])
         writer.writerow([])
         
-        writer.writerow(['Total Answers', total_text_answers + total_audio_answers])
-        writer.writerow(['Total Text Answers', total_text_answers])
-        writer.writerow(['Total Audio Answers', total_audio_answers])
+        writer.writerow(['Total Answers (Count)', total_text_answers + total_audio_answers])
+        writer.writerow(['Total Text Answers (Count)', total_text_answers])
+        writer.writerow(['Total Audio Answers (Count)', total_audio_answers])
         writer.writerow(['Text vs Audio Ratio', f'{round(total_text_answers / total_audio_answers, 2)}:1' if total_audio_answers > 0 else 'N/A'])
         writer.writerow([])
         
         # Statistici timp de răspuns (convertite în mm:ss)
         if all_times:
             avg_overall_ms = sum(all_times) / len(all_times)
-            writer.writerow(['Average Time to Answer - Overall', ms_to_time_format(avg_overall_ms)])
+            writer.writerow(['Average Time to Answer - Overall (mm:ss)', ms_to_time_format(avg_overall_ms)])
         if all_text_times:
             avg_text_ms = sum(all_text_times) / len(all_text_times)
-            writer.writerow(['Average Time to Answer - Text', ms_to_time_format(avg_text_ms)])
+            writer.writerow(['Average Time to Answer - Text (mm:ss)', ms_to_time_format(avg_text_ms)])
         if all_audio_times:
             avg_audio_ms = sum(all_audio_times) / len(all_audio_times)
-            writer.writerow(['Average Time to Answer - Audio', ms_to_time_format(avg_audio_ms)])
+            writer.writerow(['Average Time to Answer - Audio (mm:ss)', ms_to_time_format(avg_audio_ms)])
         if all_text_times and all_audio_times:
             avg_text = sum(all_text_times) / len(all_text_times)
             avg_audio = sum(all_audio_times) / len(all_audio_times)
             diff_ms = avg_audio - avg_text
-            writer.writerow(['Audio takes longer than Text by', ms_to_time_format(diff_ms)])
+            writer.writerow(['Audio takes longer than Text by (mm:ss)', ms_to_time_format(diff_ms)])
             writer.writerow(['Audio/Text Time Ratio', round(avg_audio / avg_text, 2)])
         writer.writerow([])
         
         # Statistici tab changes
         if all_tab_changes:
-            writer.writerow(['Average Tab Changes per User', round(sum(all_tab_changes) / len(all_tab_changes), 2)])
-            writer.writerow(['Max Tab Changes', max(all_tab_changes)])
-            writer.writerow(['Min Tab Changes', min(all_tab_changes)])
-            writer.writerow(['Users with 0 Tab Changes', sum(1 for tc in all_tab_changes if tc == 0)])
-            writer.writerow(['Users with Tab Changes', sum(1 for tc in all_tab_changes if tc > 0)])
+            writer.writerow(['Average Tab Changes per User (Count)', round(sum(all_tab_changes) / len(all_tab_changes), 2)])
+            writer.writerow(['Max Tab Changes (Count)', max(all_tab_changes)])
+            writer.writerow(['Min Tab Changes (Count)', min(all_tab_changes)])
+            writer.writerow(['Users with 0 Tab Changes (Count)', sum(1 for tc in all_tab_changes if tc == 0)])
+            writer.writerow(['Users with Tab Changes (Count)', sum(1 for tc in all_tab_changes if tc > 0)])
         writer.writerow([])
         
         # Statistici răspunsuri (fără corectitudine)
         if total_answered > 0:
-            writer.writerow(['Total Answered Questions', total_answered])
+            writer.writerow(['Total Answered Questions (Count)', total_answered])
         writer.writerow([])
         
         # Statistici timp petrecut (convertit în mm:ss)
         if total_time_spent > 0:
-            writer.writerow(['Total Time Spent by All Users', seconds_to_time_format(total_time_spent)])
+            writer.writerow(['Total Time Spent by All Users (mm:ss)', seconds_to_time_format(total_time_spent)])
             avg_time = total_time_spent / submitted_count if submitted_count > 0 else 0
-            writer.writerow(['Average Time Spent per User', seconds_to_time_format(avg_time)])
+            writer.writerow(['Average Time Spent per User (mm:ss)', seconds_to_time_format(avg_time)])
         
         writer.writerow([])
         writer.writerow([])
@@ -285,14 +286,14 @@ def create_statistics_csv(data, output_file='statistics_all_users.csv'):
         writer.writerow([
             'User ID', 
             'Email',
-            'Total Answers', 
-            'Text Answers', 
-            'Audio Answers',
-            'Average Time to Answer',
-            'Tab Changes',
-            'Time Spent',
+            'Total Answers (Count)', 
+            'Text Answers (Count)', 
+            'Audio Answers (Count)',
+            'Average Time to Answer (mm:ss)',
+            'Tab Changes (Count)',
+            'Time Spent (mm:ss)',
             'Current Section',
-            'Submission Time'
+            'Submission Time (Date/Time)'
         ])
         
         # Acum procesează fiecare user pentru tabelul individual

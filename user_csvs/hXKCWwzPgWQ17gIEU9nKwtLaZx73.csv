@@ -1,13 +1,13 @@
 Metric,Value
 Email,user205520@exam.org
-Submission Time,2025-12-18 15:36:43
-Answered Count,25
-Total Questions,25
-Time Spent,9:21
-Tab Change Count,4
+Submission Time (Date/Time),2025-12-18 15:36:43
+Answered Count (Total),25
+Total Questions (Count),25
+Time Spent (mm:ss),9:21
+Tab Change Count (Total),4
 ,
 ANSWERS DETAILS,
-Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription,Time to Answer,Answered At,Question Displayed At,Audio Duration
+Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription (Audio Answers),Time to Answer (mm:ss),Answered At (Timestamp),Question Displayed At (Timestamp),Audio Question Duration (mm:ss)
 section1_accomodation_Q1,What is your age?,Text,22,,,0:03,2025-12-18T15:27:25.924Z,2025-12-18T15:27:22.332Z,
 section1_accomodation_Q2,Choose what best describes you:,Text,working student,,,0:03,2025-12-18T15:27:29.531Z,2025-12-18T15:27:26.037Z,
 section1_accomodation_Q3,What day is it today?,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FhXKCWwzPgWQ17gIEU9nKwtLaZx73%2Fsection1_accomodation_Q3%2F1766071690804.webm?alt=media&token=91dd5fd6-aacb-4681-8e21-685c09c73e84,"Today, Thursday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday, Friday",0:42,2025-12-18T15:28:11.971Z,2025-12-18T15:27:29.647Z,0:01

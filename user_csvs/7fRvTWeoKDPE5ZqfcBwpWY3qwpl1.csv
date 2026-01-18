@@ -1,13 +1,13 @@
 Metric,Value
 Email,vladioanbirsan@exam.org
-Submission Time,2026-01-04 13:17:23
-Answered Count,25
-Total Questions,25
-Time Spent,14:25
-Tab Change Count,0
+Submission Time (Date/Time),2026-01-04 13:17:23
+Answered Count (Total),25
+Total Questions (Count),25
+Time Spent (mm:ss),14:25
+Tab Change Count (Total),0
 ,
 ANSWERS DETAILS,
-Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription,Time to Answer,Answered At,Question Displayed At,Audio Duration
+Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription (Audio Answers),Time to Answer (mm:ss),Answered At (Timestamp),Question Displayed At (Timestamp),Audio Question Duration (mm:ss)
 section1_accomodation_Q1,What is your age?,Text,23,,,0:13,2026-01-04T13:03:10.852Z,2026-01-04T13:02:57.721Z,
 section1_accomodation_Q2,Choose what best describes you:,Text,student,,,0:14,2026-01-04T13:03:25.366Z,2026-01-04T13:03:11.018Z,
 section1_accomodation_Q3,What day is it today?,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2F7fRvTWeoKDPE5ZqfcBwpWY3qwpl1%2Fsection1_accomodation_Q3%2F1767531835594.webm?alt=media&token=c2f331a1-405f-4927-86b7-c17b80ed786a,Fourth of January.,0:31,2026-01-04T13:03:57.100Z,2026-01-04T13:03:25.474Z,0:01

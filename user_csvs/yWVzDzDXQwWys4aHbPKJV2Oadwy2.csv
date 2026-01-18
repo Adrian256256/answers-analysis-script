@@ -1,13 +1,13 @@
 Metric,Value
 Email,user425140@exam.org
-Submission Time,2026-01-04 21:13:33
-Answered Count,25
-Total Questions,25
-Time Spent,9:38
-Tab Change Count,0
+Submission Time (Date/Time),2026-01-04 21:13:33
+Answered Count (Total),25
+Total Questions (Count),25
+Time Spent (mm:ss),9:38
+Tab Change Count (Total),0
 ,
 ANSWERS DETAILS,
-Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription,Time to Answer,Answered At,Question Displayed At,Audio Duration
+Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription (Audio Answers),Time to Answer (mm:ss),Answered At (Timestamp),Question Displayed At (Timestamp),Audio Question Duration (mm:ss)
 section1_accomodation_Q1,What is your age?,Text,23,,,0:11,2026-01-04T21:04:06.068Z,2026-01-04T21:03:54.897Z,
 section1_accomodation_Q2,Choose what best describes you:,Text,student,,,0:03,2026-01-04T21:04:09.848Z,2026-01-04T21:04:06.238Z,
 section1_accomodation_Q3,What day is it today?,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FyWVzDzDXQwWys4aHbPKJV2Oadwy2%2Fsection1_accomodation_Q3%2F1767560672620.webm?alt=media&token=1cc64af7-1034-4f66-bb85-d24dc5c45c5f,"Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday, Sunday",0:24,2026-01-04T21:04:34.430Z,2026-01-04T21:04:09.940Z,0:01

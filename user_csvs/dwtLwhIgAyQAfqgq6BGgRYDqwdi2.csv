@@ -1,13 +1,13 @@
 Metric,Value
 Email,user630936@exam.org
-Submission Time,2026-01-05 16:58:34
-Answered Count,23
-Total Questions,25
-Time Spent,15:37
-Tab Change Count,8
+Submission Time (Date/Time),2026-01-05 16:58:34
+Answered Count (Total),23
+Total Questions (Count),25
+Time Spent (mm:ss),15:37
+Tab Change Count (Total),8
 ,
 ANSWERS DETAILS,
-Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription,Time to Answer,Answered At,Question Displayed At,Audio Duration
+Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription (Audio Answers),Time to Answer (mm:ss),Answered At (Timestamp),Question Displayed At (Timestamp),Audio Question Duration (mm:ss)
 section1_accomodation_Q1,What is your age?,Text,22,,,0:06,2026-01-05T16:43:02.736Z,2026-01-05T16:42:56.238Z,
 section1_accomodation_Q2,Choose what best describes you:,Text,student,,,0:07,2026-01-05T16:43:10.487Z,2026-01-05T16:43:02.800Z,
 section1_accomodation_Q3,What day is it today?,Audio,,https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2FdwtLwhIgAyQAfqgq6BGgRYDqwdi2%2Fsection1_accomodation_Q3%2F1767631563490.webm?alt=media&token=0cbb8b1a-11b8-4852-bf65-fa8f0e57b5d0,Today it's Monday.,2:54,2026-01-05T16:46:04.782Z,2026-01-05T16:43:10.552Z,0:02
