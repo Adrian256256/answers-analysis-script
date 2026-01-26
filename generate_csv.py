@@ -64,23 +64,27 @@ def get_user_email(user_id, data):
     return user_info.get('email', 'N/A')
 
 def create_user_csv(user_id, data, questions_map, output_dir='user_csvs'):
-    """Creează un CSV pentru un user specific"""
-    os.makedirs(output_dir, exist_ok=True)
+    """Creează două CSV-uri pentru un user specific: summary.csv și answers.csv"""
+    # Creează un folder pentru acest user
+    user_folder = os.path.join(output_dir, user_id)
+    os.makedirs(user_folder, exist_ok=True)
     
-    csv_path = os.path.join(output_dir, f'{user_id}.csv')
+    summary_path = os.path.join(user_folder, 'summary.csv')
+    answers_path = os.path.join(user_folder, 'answers.csv')
     
     # Obține datele complete pentru user
     user_data, is_submitted = get_user_complete_data(user_id, data)
     
     if not user_data:
         # Nu există date pentru acest user
-        with open(csv_path, 'w', newline='', encoding='utf-8') as f:
+        with open(summary_path, 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerow(['Metric', 'Value'])
             writer.writerow(['No data available for this user'])
         return
     
-    with open(csv_path, 'w', newline='', encoding='utf-8') as f:
+    # Creează summary.csv
+    with open(summary_path, 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         
         # Header
@@ -124,12 +128,11 @@ def create_user_csv(user_id, data, questions_map, output_dir='user_csvs'):
         
         if 'writtenQuestionIds' in user_data:
             writer.writerow(['Written Question IDs', ', '.join(user_data['writtenQuestionIds'])])
-        
-        writer.writerow(['', ''])  # Linie goală cu 2 coloane
-        
-        # Răspunsuri
-        if 'answers' in user_data and user_data['answers']:
-            writer.writerow(['ANSWERS DETAILS', ''])
+    
+    # Creează answers.csv
+    if 'answers' in user_data and user_data['answers']:
+        with open(answers_path, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.writer(f)
             writer.writerow(['Question ID', 'Question Text', 'Answer Type', 'User Answer (Text)', 'Audio URL', 
                            'Transcription (Audio Answers)', 'Time to Answer (mm:ss)', 'Answered At (Timestamp)', 
                            'Question Displayed At (Timestamp)', 'Audio Question Duration (mm:ss)'])
@@ -166,7 +169,7 @@ def create_user_csv(user_id, data, questions_map, output_dir='user_csvs'):
                     audio_duration
                 ])
     
-    print(f'Created CSV for user: {user_id}')
+    print(f'Created CSVs for user: {user_id}')
 
 def create_statistics_csv(data, output_file='statistics_all_users.csv'):
     """Creează un CSV cu statistici pentru toți userii"""
@@ -373,7 +376,7 @@ def main():
     create_statistics_csv(data)
     
     print('\n✅ All CSVs generated successfully!')
-    print(f'- Individual user CSVs: user_csvs/ directory')
+    print(f'- Individual user CSVs: user_csvs/<user_id>/summary.csv and answers.csv')
     print(f'- All statistics: statistics_all_users.csv')
 
 if __name__ == '__main__':

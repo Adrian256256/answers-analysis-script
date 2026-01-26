@@ -19,7 +19,8 @@
    - [Statistics CSV - Individual User Data](#statistics-csv---individual-user-data)
 8. [Time Format](#time-format)
 9. [Data Source](#data-source)
-10. [Notes](#notes)
+10. [Viewing CSV Files on GitHub](#viewing-csv-files-on-github)
+11. [Notes](#notes)
 
 ---
 
@@ -49,7 +50,14 @@ answers-analysis-script/
 ├── retranscribe_audio.py              # Script: re-transcribe with better accuracy
 ├── parse_questions.py                  # Script: extracts questions from TypeScript
 ├── audio_files/                        # Directory: downloaded audio files (74 files)
-├── user_csvs/                          # Directory: individual user CSV reports (16 files)
+├── user_csvs/                          # Directory: individual user folders
+│   ├── <user_id_1>/
+│   │   ├── summary.csv                 # User statistics and metadata
+│   │   └── answers.csv                 # Detailed answer information
+│   ├── <user_id_2>/
+│   │   ├── summary.csv
+│   │   └── answers.csv
+│   └── ...                             # 16 user folders total
 └── statistics_all_users.csv            # Aggregated statistics for all users
 ```
 
@@ -141,25 +149,35 @@ python3 generate_csv.py
 
 ### Individual User CSVs
 
-**Location:** `user_csvs/[USER_ID].csv`
+**Location:** `user_csvs/<user_id>/`
 
-Each file contains:
-1. **User Metadata** (key-value pairs):
-   - Email address
-   - Submission timestamp
-   - Answer counts
-   - Time spent
-   - Tab change count
-   - Current section (for in-progress users)
+Each user has a dedicated folder containing two CSV files:
 
-2. **Detailed Answer Breakdown** (table):
-   - All questions answered by the user
-   - Question text
-   - User responses (text or audio transcription)
-   - Timing information
-   - Audio URLs (for audio responses)
+#### 1. `summary.csv` - User Metadata
 
-**Example:** `user_csvs/hXKCWwzPgWQ17gIEU9nKwtLaZx73.csv`
+Contains key statistics and metadata in a key-value format:
+- Email address
+- Submission timestamp
+- Answer counts
+- Time spent
+- Tab change count
+- Current section (for in-progress users)
+
+**This file is optimized for GitHub viewing** - displays as a clean table when viewed on GitHub.
+
+#### 2. `answers.csv` - Detailed Answer Breakdown
+
+Contains a table with all questions answered by the user:
+- Question ID and text
+- User responses (text or audio transcription)
+- Timing information
+- Audio URLs (for audio responses)
+
+**This file is also optimized for GitHub viewing** - GitHub automatically renders CSV files as tables.
+
+**Example:** 
+- `user_csvs/hXKCWwzPgWQ17gIEU9nKwtLaZx73/summary.csv`
+- `user_csvs/hXKCWwzPgWQ17gIEU9nKwtLaZx73/answers.csv`
 
 ### Statistics CSV
 
@@ -176,7 +194,7 @@ Contains two sections:
 
 ### Individual User CSV Columns
 
-#### Metadata Section (Key-Value Format)
+#### Summary CSV (Key-Value Format)
 
 | Metric | Description | Example |
 |--------|-------------|---------|
@@ -190,7 +208,7 @@ Contains two sections:
 | `Current Question Index` | Index of current question | 15 |
 | `Tab Change Count (Total)` | Number of times user switched tabs | 4 |
 
-#### Answer Details Section (Table Format)
+#### Answers CSV (Table Format)
 
 | Column | Description | Example |
 |--------|-------------|---------|
@@ -356,6 +374,36 @@ The project processes JSON files with the following structure:
 - `section2_control`: Written technical questions (control version)
 - `section3_standard`: Audio technical questions (standard version)
 - `section3_control`: Audio technical questions (control version)
+
+---
+
+## Viewing CSV Files on GitHub
+
+All CSV files are optimized for viewing directly on GitHub:
+
+### Individual User Data
+
+1. Navigate to `user_csvs/` directory
+2. Click on any user ID folder (e.g., `hXKCWwzPgWQ17gIEU9nKwtLaZx73`)
+3. Click on either file:
+   - `summary.csv` - Clean key-value table with user statistics
+   - `answers.csv` - Detailed answer breakdown in table format
+
+**GitHub automatically renders CSV files as formatted tables** - no need to download!
+
+### Statistics Data
+
+Click on `statistics_all_users.csv` in the root directory to view:
+- Aggregated metrics across all users
+- Individual user comparison table
+
+### Benefits of this Structure
+
+✅ **Easy navigation** - Each user has a dedicated folder  
+✅ **GitHub-friendly** - CSV files render as tables automatically  
+✅ **Organized** - Separate files for summary vs detailed data  
+✅ **Shareable** - Direct links to specific user data  
+✅ **Clean commits** - Changes to one user don't affect others
 
 ---
 
