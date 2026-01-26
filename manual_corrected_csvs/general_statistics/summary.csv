@@ -14,22 +14,22 @@ Average Time to Answer - Audio (mm:ss),0:33
 Audio takes longer than Text by (mm:ss),0:18
 Audio/Text Time Ratio,2.22
 
-Total Graded Answers (Count),239
-Total Correct Answers (Count),171
-Total Wrong Answers (Count),68
-Overall Accuracy (%),71.55%
+Total Graded Answers (Count),246
+Total Correct Answers (Count),194
+Total Wrong Answers (Count),52
+Overall Accuracy (%),78.86%
 
-Text Answers - Graded (Count),149
-Text Answers - Correct (Count),120
-Text Answers - Wrong (Count),29
-Text Accuracy (%),80.54%
+Text Answers - Graded (Count),154
+Text Answers - Correct (Count),124
+Text Answers - Wrong (Count),30
+Text Accuracy (%),80.52%
 
-Audio Answers - Graded (Count),90
-Audio Answers - Correct (Count),51
-Audio Answers - Wrong (Count),39
-Audio Accuracy (%),56.67%
+Audio Answers - Graded (Count),92
+Audio Answers - Correct (Count),70
+Audio Answers - Wrong (Count),22
+Audio Accuracy (%),76.09%
 
-Text vs Audio Performance Gap (%),23.87%
+Text vs Audio Performance Gap (%),4.43%
 Text performs better than Audio,Yes
 
 Average Tab Changes per User (Count),3.05
