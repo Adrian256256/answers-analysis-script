@@ -49,7 +49,7 @@ answers-analysis-script/
 ├── transcribe_audio.py                 # Script: transcribes audio answers
 ├── retranscribe_audio.py              # Script: re-transcribe with better accuracy
 ├── parse_questions.py                  # Script: extracts questions from TypeScript
-├── audio_files/                        # Directory: downloaded audio files (74 files)
+├── audio_files/                        # Directory: downloaded audio files (96 files)
 ├── user_csvs/                          # Directory: individual user folders
 │   ├── <user_id_1>/
 │   │   ├── summary.csv                 # User statistics and metadata
@@ -57,8 +57,10 @@ answers-analysis-script/
 │   ├── <user_id_2>/
 │   │   ├── summary.csv
 │   │   └── answers.csv
-│   └── ...                             # 16 user folders total
-└── statistics_all_users.csv            # Aggregated statistics for all users
+│   └── ...                             # 19 user folders total
+├── general_statistics/                 # Directory: aggregated statistics
+│   ├── summary.csv                     # Overall metrics and averages
+│   └── users.csv                       # Comparison table of all users
 ```
 
 ---
@@ -179,14 +181,40 @@ Contains a table with all questions answered by the user:
 - `user_csvs/hXKCWwzPgWQ17gIEU9nKwtLaZx73/summary.csv`
 - `user_csvs/hXKCWwzPgWQ17gIEU9nKwtLaZx73/answers.csv`
 
-### Statistics CSV
+### General Statistics CSVs
 
-**Location:** `statistics_all_users.csv`
+**Location:** `general_statistics/`
 
-Contains two sections:
+Contains two CSV files with aggregated statistics:
 
-1. **General Statistics**: Aggregated metrics across all users
-2. **Individual User Data**: One row per user with key metrics
+#### 1. `summary.csv` - Overall Metrics
+
+Contains aggregated metrics across all users in a key-value format:
+- Total users (submitted vs in-progress)
+- Answer statistics (total, text, audio, ratios)
+- Average time to answer (overall, text, audio)
+- Tab change statistics
+- Time spent statistics
+
+**Optimized for GitHub viewing** - displays as a clean summary table.
+
+#### 2. `users.csv` - User Comparison Table
+
+Contains a table comparing all users side-by-side:
+- User ID and email
+- Status (Submitted/In Progress)
+- Answer counts by type
+- Average response times
+- Tab changes
+- Time spent
+- Current section
+- Submission timestamp
+
+**Perfect for GitHub viewing** - compare all users in one table.
+
+**Example:** 
+- `general_statistics/summary.csv`
+- `general_statistics/users.csv`
 
 ---
 
@@ -225,49 +253,50 @@ Contains two sections:
 
 ---
 
-### Statistics CSV - General Statistics
+### General Statistics CSVs
 
-Aggregated metrics across all 16 users:
+#### Summary CSV (Key-Value Format)
+
+Aggregated metrics across all 19 users:
 
 | Metric | Description | Example Value |
 |--------|-------------|---------------|
-| `Total Users (Count)` | Total number of users in dataset | 16 |
-| `Total Answers (Count)` | Total answers across all users | 242 |
-| `Total Text Answers (Count)` | Number of text-based answers | 168 |
-| `Total Audio Answers (Count)` | Number of audio-based answers | 74 |
-| `Text vs Audio Ratio` | Ratio of text to audio answers | 2.27:1 |
-| `Average Time to Answer - Overall (mm:ss)` | Mean time across all answers | 0:24 |
-| `Average Time to Answer - Text (mm:ss)` | Mean time for text answers | 0:17 |
-| `Average Time to Answer - Audio (mm:ss)` | Mean time for audio answers | 0:39 |
-| `Audio takes longer than Text by (mm:ss)` | Time difference between audio and text | 0:22 |
-| `Audio/Text Time Ratio` | Ratio of audio to text answer times | 2.29 |
-| `Average Tab Changes per User (Count)` | Mean tab changes per user | 3.0 |
+| `Total Users (Count)` | Total number of users in dataset | 19 |
+| `Submitted Users (Count)` | Users who completed the exam | 15 |
+| `In Progress Users (Count)` | Users still taking the exam | 4 |
+| `Total Answers (Count)` | Total answers across all users | 304 |
+| `Total Text Answers (Count)` | Number of text-based answers | 208 |
+| `Total Audio Answers (Count)` | Number of audio-based answers | 96 |
+| `Text vs Audio Ratio` | Ratio of text to audio answers | 2.17:1 |
+| `Average Time to Answer - Overall (mm:ss)` | Mean time across all answers | 0:22 |
+| `Average Time to Answer - Text (mm:ss)` | Mean time for text answers | 0:15 |
+| `Average Time to Answer - Audio (mm:ss)` | Mean time for audio answers | 0:35 |
+| `Audio takes longer than Text by (mm:ss)` | Time difference between audio and text | 0:19 |
+| `Audio/Text Time Ratio` | Ratio of audio to text answer times | 2.24 |
+| `Average Tab Changes per User (Count)` | Mean tab changes per user | 3.17 |
 | `Max Tab Changes (Count)` | Maximum tab changes by any user | 14 |
 | `Min Tab Changes (Count)` | Minimum tab changes | 0 |
-| `Users with 0 Tab Changes (Count)` | Users who never switched tabs | 9 |
-| `Users with Tab Changes (Count)` | Users who switched tabs at least once | 6 |
-| `Total Answered Questions (Count)` | Total questions answered across all users | 228 |
-| `Total Time Spent by All Users (mm:ss)` | Cumulative time spent | 122:43 |
-| `Average Time Spent per User (mm:ss)` | Mean time spent per user | 10:13 |
+| `Users with 0 Tab Changes (Count)` | Users who never switched tabs | 10 |
+| `Users with Tab Changes (Count)` | Users who switched tabs at least once | 8 |
+| `Total Answered Questions (Count)` | Total questions answered across all users | 290 |
+| `Total Time Spent by All Users (mm:ss)` | Cumulative time spent | 143:22 |
+| `Average Time Spent per User (mm:ss)` | Mean time spent per user | 9:33 |
 
----
-
-### Statistics CSV - Individual User Data
-
-One row per user with key performance metrics:
+#### Users CSV (Table Format)
 
 | Column | Description | Example |
 |--------|-------------|---------|
-| `User ID` | Unique Firebase user identifier | 1KznrIROVcQisRpGQw0kRF79lEW2 |
-| `Email` | User's email address | user228962@exam.org |
-| `Total Answers (Count)` | Number of questions answered by user | 18 |
-| `Text Answers (Count)` | Number of text responses | 11 |
-| `Audio Answers (Count)` | Number of audio responses | 7 |
-| `Average Time to Answer (mm:ss)` | Mean time per question for this user | 0:24 |
-| `Tab Changes (Count)` | Number of tab switches | 0 |
-| `Time Spent (mm:ss)` | Total time spent on exam | 8:46 |
-| `Current Section` | Last active section (N/A if completed) | N/A |
-| `Submission Time (Date/Time)` | Completion timestamp (N/A if incomplete) | 2026-01-04 15:03:20 |
+| `User ID` | Firebase user identifier | hXKCWwzPgWQ17gIEU9nKwtLaZx73 |
+| `Email` | User's email address | user205520@exam.org |
+| `Status` | Exam completion status | Submitted or In Progress |
+| `Total Answers (Count)` | Total questions answered | 25 |
+| `Text Answers (Count)` | Number of text answers | 14 |
+| `Audio Answers (Count)` | Number of audio answers | 11 |
+| `Average Time to Answer (mm:ss)` | Mean time per answer | 0:22 |
+| `Tab Changes (Count)` | Times user switched tabs | 4 |
+| `Time Spent (mm:ss)` | Total time spent on exam | 9:21 |
+| `Current Section` | Current section (if in progress) | section3_standard |
+| `Submission Time (Date/Time)` | Timestamp of submission | 2025-12-18 15:36:43 |
 
 ---
 
@@ -277,7 +306,7 @@ All time values are formatted as **mm:ss** (minutes:seconds):
 - `0:03` = 3 seconds
 - `0:42` = 42 seconds
 - `8:46` = 8 minutes 46 seconds
-- `122:43` = 122 minutes 43 seconds (2 hours 2 minutes 43 seconds)
+- `143:22` = 143 minutes 22 seconds (2 hours 23 minutes 22 seconds)
 
 **Source conversions:**
 - Milliseconds converted to mm:ss for `timeToAnswerMs`, `audioQuestionDurationMs`
@@ -391,19 +420,23 @@ All CSV files are optimized for viewing directly on GitHub:
 
 **GitHub automatically renders CSV files as formatted tables** - no need to download!
 
-### Statistics Data
+### General Statistics Data
 
-Click on `statistics_all_users.csv` in the root directory to view:
-- Aggregated metrics across all users
-- Individual user comparison table
+1. Navigate to `general_statistics/` directory
+2. Click on either file:
+   - `summary.csv` - Aggregated metrics across all users
+   - `users.csv` - Comparison table of all users side-by-side
+
+**Perfect for quick overview** - See all statistics at a glance!
 
 ### Benefits of this Structure
 
-✅ **Easy navigation** - Each user has a dedicated folder  
+✅ **Easy navigation** - Each user and statistics have dedicated folders  
 ✅ **GitHub-friendly** - CSV files render as tables automatically  
 ✅ **Organized** - Separate files for summary vs detailed data  
-✅ **Shareable** - Direct links to specific user data  
-✅ **Clean commits** - Changes to one user don't affect others
+✅ **Shareable** - Direct links to specific user or statistics data  
+✅ **Clean commits** - Changes to one user don't affect others  
+✅ **Quick comparison** - Users table allows side-by-side comparison
 
 ---
 
@@ -416,7 +449,7 @@ Click on `statistics_all_users.csv` in the root directory to view:
 
 2. **Tab Changes**: 
    - Tracked as potential indicator of multitasking or academic integrity issues
-   - 56% of users (9/16) never switched tabs
+   - 53% of users (10/19) never switched tabs
    - Maximum observed: 14 tab changes
 
 3. **Time Calculations**:
@@ -424,11 +457,11 @@ Click on `statistics_all_users.csv` in the root directory to view:
    - Negative times possible if system clock adjustments occurred
 
 4. **Missing Data**:
-   - Some users have incomplete exams (4/16 in progress)
+   - Some users have incomplete exams (4/19 in progress)
    - N/A values indicate missing or inapplicable data
 
 5. **Audio Files**:
-   - Downloaded to `audio_files/` directory
+   - Downloaded to `audio_files/` directory (96 files)
    - Format: WebM (VP8/Opus)
    - Naming convention: `{userId}_{questionId}.webm`
 

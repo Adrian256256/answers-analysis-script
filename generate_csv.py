@@ -171,70 +171,75 @@ def create_user_csv(user_id, data, questions_map, output_dir='user_csvs'):
     
     print(f'Created CSVs for user: {user_id}')
 
-def create_statistics_csv(data, output_file='statistics_all_users.csv'):
-    """Creează un CSV cu statistici pentru toți userii"""
+def create_statistics_csv(data, output_dir='general_statistics'):
+    """Creează două CSV-uri separate cu statistici: summary.csv și users.csv"""
     
-    with open(output_file, 'w', newline='', encoding='utf-8') as f:
+    # Creează folderul pentru statistici
+    os.makedirs(output_dir, exist_ok=True)
+    
+    exam_progress = data.get('examProgress', {})
+    
+    # Calculează mai întâi toate statisticile generale
+    total_users = len(exam_progress)
+    submitted_count = 0
+    in_progress_count = 0
+    
+    all_text_times = []
+    all_audio_times = []
+    all_times = []
+    all_tab_changes = []
+    total_text_answers = 0
+    total_audio_answers = 0
+    total_answered = 0
+    total_time_spent = 0
+    
+    # Colectează date pentru statistici
+    for user_id in exam_progress.keys():
+        user_data, is_submitted = get_user_complete_data(user_id, data)
+        
+        if not user_data:
+            submitted_count += 1
+            continue
+        
+        if is_submitted:
+            submitted_count += 1
+        else:
+            in_progress_count += 1
+        
+        answers = user_data.get('answers', {})
+        
+        # Tipuri de răspunsuri și timpi
+        for ans in answers.values():
+            if 'timeToAnswerMs' in ans:
+                time = ans['timeToAnswerMs']
+                all_times.append(time)
+                
+                if 'text' in ans:
+                    total_text_answers += 1
+                    all_text_times.append(time)
+                elif 'audioUrl' in ans:
+                    total_audio_answers += 1
+                    all_audio_times.append(time)
+        
+        # Tab changes
+        if 'tabChangeCount' in user_data:
+            all_tab_changes.append(user_data['tabChangeCount'])
+        
+        # Răspunsuri
+        if 'answeredCount' in user_data:
+            total_answered += user_data['answeredCount']
+        if 'timeSpent' in user_data:
+            total_time_spent += user_data['timeSpent']
+    
+    # 1. Creează summary.csv cu statistici generale
+    summary_path = os.path.join(output_dir, 'summary.csv')
+    with open(summary_path, 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         
-        exam_progress = data.get('examProgress', {})
-        
-        # Calculează mai întâi toate statisticile generale
-        total_users = len(exam_progress)
-        submitted_count = 0
-        in_progress_count = 0
-        
-        all_text_times = []
-        all_audio_times = []
-        all_times = []
-        all_tab_changes = []
-        total_text_answers = 0
-        total_audio_answers = 0
-        total_answered = 0
-        total_time_spent = 0
-        
-        # Colectează date pentru statistici
-        for user_id in exam_progress.keys():
-            user_data, is_submitted = get_user_complete_data(user_id, data)
-            
-            if not user_data:
-                submitted_count += 1
-                continue
-            
-            if is_submitted:
-                submitted_count += 1
-            else:
-                in_progress_count += 1
-            
-            answers = user_data.get('answers', {})
-            
-            # Tipuri de răspunsuri și timpi
-            for ans in answers.values():
-                if 'timeToAnswerMs' in ans:
-                    time = ans['timeToAnswerMs']
-                    all_times.append(time)
-                    
-                    if 'text' in ans:
-                        total_text_answers += 1
-                        all_text_times.append(time)
-                    elif 'audioUrl' in ans:
-                        total_audio_answers += 1
-                        all_audio_times.append(time)
-            
-            # Tab changes
-            if 'tabChangeCount' in user_data:
-                all_tab_changes.append(user_data['tabChangeCount'])
-            
-            # Răspunsuri (fără correct answers)
-            if 'answeredCount' in user_data:
-                total_answered += user_data['answeredCount']
-            if 'timeSpent' in user_data:
-                total_time_spent += user_data['timeSpent']
-        
-        # Scrie statisticile generale
-        writer.writerow(['=== GENERAL STATISTICS ==='])
         writer.writerow(['Metric', 'Value'])
         writer.writerow(['Total Users (Count)', total_users])
+        writer.writerow(['Submitted Users (Count)', submitted_count])
+        writer.writerow(['In Progress Users (Count)', in_progress_count])
         writer.writerow([])
         
         writer.writerow(['Total Answers (Count)', total_text_answers + total_audio_answers])
@@ -243,7 +248,7 @@ def create_statistics_csv(data, output_file='statistics_all_users.csv'):
         writer.writerow(['Text vs Audio Ratio', f'{round(total_text_answers / total_audio_answers, 2)}:1' if total_audio_answers > 0 else 'N/A'])
         writer.writerow([])
         
-        # Statistici timp de răspuns (convertite în mm:ss)
+        # Statistici timp de răspuns
         if all_times:
             avg_overall_ms = sum(all_times) / len(all_times)
             writer.writerow(['Average Time to Answer - Overall (mm:ss)', ms_to_time_format(avg_overall_ms)])
@@ -270,25 +275,29 @@ def create_statistics_csv(data, output_file='statistics_all_users.csv'):
             writer.writerow(['Users with Tab Changes (Count)', sum(1 for tc in all_tab_changes if tc > 0)])
         writer.writerow([])
         
-        # Statistici răspunsuri (fără corectitudine)
+        # Statistici răspunsuri
         if total_answered > 0:
             writer.writerow(['Total Answered Questions (Count)', total_answered])
         writer.writerow([])
         
-        # Statistici timp petrecut (convertit în mm:ss)
+        # Statistici timp petrecut
         if total_time_spent > 0:
             writer.writerow(['Total Time Spent by All Users (mm:ss)', seconds_to_time_format(total_time_spent)])
             avg_time = total_time_spent / submitted_count if submitted_count > 0 else 0
             writer.writerow(['Average Time Spent per User (mm:ss)', seconds_to_time_format(avg_time)])
+    
+    print(f'✅ Created {summary_path}')
+    
+    # 2. Creează users.csv cu date individuale pentru fiecare user
+    users_path = os.path.join(output_dir, 'users.csv')
+    with open(users_path, 'w', newline='', encoding='utf-8') as f:
+        writer = csv.writer(f)
         
-        writer.writerow([])
-        writer.writerow([])
-        writer.writerow(['=== INDIVIDUAL USER DATA ==='])
-        
-        # Header pentru datele individuale
+        # Header
         writer.writerow([
             'User ID', 
             'Email',
+            'Status',
             'Total Answers (Count)', 
             'Text Answers (Count)', 
             'Audio Answers (Count)',
@@ -299,20 +308,22 @@ def create_statistics_csv(data, output_file='statistics_all_users.csv'):
             'Submission Time (Date/Time)'
         ])
         
-        # Acum procesează fiecare user pentru tabelul individual
+        # Procesează fiecare user
         for user_id in sorted(exam_progress.keys()):
             user_data, is_submitted = get_user_complete_data(user_id, data)
             
             if not user_data:
-                # Nu există date detaliate
                 email = get_user_email(user_id, data)
                 writer.writerow([
                     user_id,
-                    email, 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'
+                    email,
+                    'No Data',
+                    'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'
                 ])
                 continue
             
             email = get_user_email(user_id, data)
+            status = 'Submitted' if is_submitted else 'In Progress'
             
             # Contorizare răspunsuri
             answers = user_data.get('answers', {})
@@ -321,20 +332,22 @@ def create_statistics_csv(data, output_file='statistics_all_users.csv'):
             text_answers = sum(1 for ans in answers.values() if 'text' in ans)
             audio_answers = sum(1 for ans in answers.values() if 'audioUrl' in ans)
             
-            # Timp mediu de răspuns (convertit în mm:ss)
+            # Timp mediu de răspuns
             times = [ans.get('timeToAnswerMs', 0) for ans in answers.values() if 'timeToAnswerMs' in ans]
             avg_time_ms = sum(times) / len(times) if times else 0
             avg_time_formatted = ms_to_time_format(avg_time_ms) if times else 'N/A'
             
             # Tab changes
-            tab_changes = user_data.get('tabChangeCount', 'N/A')
+            tab_changes = user_data.get('tabChangeCount', 0)
             
-            # Rezultate (fără correct answers și scor)
-            time_spent = user_data.get('timeSpent', 'N/A')
-            time_spent_formatted = seconds_to_time_format(time_spent) if isinstance(time_spent, (int, float)) and time_spent > 0 else 'N/A'
+            # Time spent
+            time_spent = user_data.get('timeSpent', 0)
+            time_spent_formatted = seconds_to_time_format(time_spent) if time_spent > 0 else 'N/A'
             
-            # Secțiune curentă sau timestamp
+            # Secțiune curentă
             current_section = user_data.get('currentSection', 'N/A')
+            
+            # Submission time
             if 'timestamp' in user_data:
                 submission_time = datetime.fromisoformat(user_data['timestamp'].replace('Z', '+00:00')).strftime('%Y-%m-%d %H:%M:%S')
             else:
@@ -343,6 +356,7 @@ def create_statistics_csv(data, output_file='statistics_all_users.csv'):
             writer.writerow([
                 user_id,
                 email,
+                status,
                 total_answers,
                 text_answers,
                 audio_answers,
@@ -353,7 +367,8 @@ def create_statistics_csv(data, output_file='statistics_all_users.csv'):
                 submission_time
             ])
     
-    print(f'\nCreated statistics CSV: {output_file}')
+    print(f'✅ Created {users_path}')
+
 
 def main():
     """Funcție principală"""
@@ -372,12 +387,15 @@ def main():
     
     print(f'\nTotal users processed: {len(exam_progress)}')
     
-    print('\nGenerating statistics CSV...')
+    print('\nGenerating statistics CSVs...')
     create_statistics_csv(data)
     
     print('\n✅ All CSVs generated successfully!')
     print(f'- Individual user CSVs: user_csvs/<user_id>/summary.csv and answers.csv')
-    print(f'- All statistics: statistics_all_users.csv')
+    print(f'- General statistics: general_statistics/summary.csv and users.csv')
+
+if __name__ == '__main__':
+    main()
 
 if __name__ == '__main__':
     main()

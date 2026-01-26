@@ -1,0 +1,26 @@
+Metric,Value
+Total Users (Count),19
+Submitted Users (Count),15
+In Progress Users (Count),4
+
+Total Answers (Count),304
+Total Text Answers (Count),208
+Total Audio Answers (Count),96
+Text vs Audio Ratio,2.17:1
+
+Average Time to Answer - Overall (mm:ss),0:22
+Average Time to Answer - Text (mm:ss),0:15
+Average Time to Answer - Audio (mm:ss),0:35
+Audio takes longer than Text by (mm:ss),0:19
+Audio/Text Time Ratio,2.24
+
+Average Tab Changes per User (Count),3.17
+Max Tab Changes (Count),14
+Min Tab Changes (Count),0
+Users with 0 Tab Changes (Count),10
+Users with Tab Changes (Count),8
+
+Total Answered Questions (Count),290
+
+Total Time Spent by All Users (mm:ss),143:22
+Average Time Spent per User (mm:ss),9:33
