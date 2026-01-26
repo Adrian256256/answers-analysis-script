@@ -20,11 +20,11 @@ except ImportError:
 
 # Load the JSON data
 print("Loading data from final.json...")
-with open('final.json', 'r', encoding='utf-8') as f:
+with open('../data/final.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
 # Audio files directory already exists
-audio_dir = Path('audio_files')
+audio_dir = Path('../data/audio_files')
 
 def download_audio(url, output_path):
     """Download audio file from URL"""
@@ -232,7 +232,7 @@ for user_id, results in data.get('examResults', {}).items():
                 print(f"    ❌ Failed to transcribe")
 
 # Save updated data
-output_file = 'final_with_transcriptions.json'
+output_file = '../data/final_with_transcriptions.json'
 print("\n" + "=" * 60)
 print("Saving transcriptions...")
 with open(output_file, 'w', encoding='utf-8') as f:

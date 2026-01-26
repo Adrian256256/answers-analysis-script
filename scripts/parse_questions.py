@@ -4,7 +4,7 @@ import re
 def parse_exam_questions():
     """Parse examQuestions.ts și extrage textul întrebărilor"""
     
-    with open('examQuestions.ts', 'r', encoding='utf-8') as f:
+    with open('../data/examQuestions.ts', 'r', encoding='utf-8') as f:
         lines = f.readlines()
     
     questions = {}
@@ -85,7 +85,7 @@ if __name__ == '__main__':
     questions = parse_exam_questions()
     
     # Salvează într-un JSON pentru a fi folosit de generate_csv.py
-    with open('questions_map.json', 'w', encoding='utf-8') as f:
+    with open('../data/questions_map.json', 'w', encoding='utf-8') as f:
         json.dump(questions, f, indent=2, ensure_ascii=False)
     
     print(f"✅ Parsed {len(questions)} questions")

@@ -8,7 +8,7 @@ print("=" * 70)
 
 # Load the existing transcriptions
 print("\n📂 Loading existing data...")
-with open('final_with_transcriptions.json', 'r', encoding='utf-8') as f:
+with open('../data/final_with_transcriptions.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
 # Load Whisper model
@@ -16,7 +16,7 @@ print("\n📥 Loading Whisper 'base' model (better accuracy)...")
 model = whisper.load_model("base")
 print("✅ Model loaded!\n")
 
-audio_dir = Path('audio_files')
+audio_dir = Path('../data/audio_files')
 total_audio = 0
 retranscribed = 0
 failed = 0
@@ -124,7 +124,7 @@ for user_id, results in data.get('examResults', {}).items():
 # Save updated data
 print("\n" + "=" * 70)
 print("Saving improved transcriptions...")
-with open('final_with_transcriptions.json', 'w', encoding='utf-8') as f:
+with open('../data/final_with_transcriptions.json', 'w', encoding='utf-8') as f:
     json.dump(data, f, indent=2, ensure_ascii=False)
 
 print("\n" + "=" * 70)
@@ -134,5 +134,5 @@ print(f"📊 Statistics:")
 print(f"  - Total audio files: {total_audio}")
 print(f"  - Successfully re-transcribed: {retranscribed}")
 print(f"  - Failed: {failed}")
-print(f"\n💾 Updated data saved to: final_with_transcriptions.json")
-print(f"📝 Run 'python3 generate_csv.py' to update CSVs with new transcriptions")
+print(f"\n💾 Updated data saved to: ../data/final_with_transcriptions.json")
+print(f"📝 Run 'cd scripts && python3 generate_csv.py' to update CSVs with new transcriptions")

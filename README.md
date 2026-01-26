@@ -41,26 +41,34 @@ The analysis focuses on:
 
 ```
 answers-analysis-script/
-├── final.json                          # Source data (Firebase export)
-├── final_with_transcriptions.json      # Data with audio transcriptions
-├── examQuestions.ts                    # Question definitions and text
-├── questions_map.json                  # Parsed question text mapping
-├── generate_csv.py                     # Main script: generates CSV reports
-├── transcribe_audio.py                 # Script: transcribes audio answers
-├── retranscribe_audio.py              # Script: re-transcribe with better accuracy
-├── parse_questions.py                  # Script: extracts questions from TypeScript
-├── audio_files/                        # Directory: downloaded audio files (96 files)
-├── user_csvs/                          # Directory: individual user folders
-│   ├── <user_id_1>/
-│   │   ├── summary.csv                 # User statistics and metadata
-│   │   └── answers.csv                 # Detailed answer information
-│   ├── <user_id_2>/
-│   │   ├── summary.csv
-│   │   └── answers.csv
-│   └── ...                             # 19 user folders total
-├── general_statistics/                 # Directory: aggregated statistics
-│   ├── summary.csv                     # Overall metrics and averages
-│   └── users.csv                       # Comparison table of all users
+├── scripts/                            # All Python scripts
+│   ├── generate_csv.py                 # Main script: generates CSV reports
+│   ├── transcribe_audio.py             # Script: transcribes audio answers
+│   ├── retranscribe_audio.py          # Script: re-transcribe with better accuracy
+│   └── parse_questions.py              # Script: extracts questions from TypeScript
+├── data/                               # All data files and audio
+│   ├── final.json                      # Source data (Firebase export)
+│   ├── final_with_transcriptions.json  # Data with audio transcriptions
+│   ├── examQuestions.ts                # Question definitions and text
+│   ├── questions_map.json              # Parsed question text mapping
+│   ├── audio_files/                    # Downloaded audio files (103 files)
+│   ├── retranscribe.log                # Logs from re-transcription
+│   └── retranscribe_final.log          # Final re-transcription logs
+├── output/                             # All generated CSV files
+│   ├── user_csvs/                      # Individual user folders (20 users)
+│   │   ├── <user_id_1>/
+│   │   │   ├── summary.csv             # User statistics and metadata
+│   │   │   └── answers.csv             # Detailed answer information
+│   │   ├── <user_id_2>/
+│   │   │   ├── summary.csv
+│   │   │   └── answers.csv
+│   │   └── ...
+│   └── general_statistics/             # Aggregated statistics
+│       ├── summary.csv                 # Overall metrics and averages
+│       └── users.csv                   # Comparison table of all users
+├── .venv/                              # Python virtual environment
+├── .gitignore
+└── README.md
 ```
 
 ---
@@ -87,10 +95,12 @@ answers-analysis-script/
    ```
 
 2. **Place your data file:**
-   - Ensure `final.json` (Firebase export) is in the project root
+   - Ensure `final.json` (Firebase export) is in the `data/` folder
+   - Ensure `examQuestions.ts` is in the `data/` folder
 
 3. **Parse question definitions:**
    ```bash
+   cd scripts
    python3 parse_questions.py
    ```
    This creates `questions_map.json` with question text extracted from `examQuestions.ts`.
@@ -99,38 +109,58 @@ answers-analysis-script/
 
 ## Usage
 
-### Transcribing Audio Answers
+### Quick Start (Using Helper Script)
+
+For convenience, you can use the interactive helper script:
+
+```bash
+./run.sh
+```
+
+This will present a menu with options to:
+1. Parse questions from examQuestions.ts
+2. Transcribe audio files
+3. Generate CSV reports
+4. Re-transcribe audio with better accuracy
+5. Run full pipeline (transcribe + generate CSVs)
+
+### Manual Usage
+
+#### Transcribing Audio Answers
 
 First-time transcription of all audio responses:
 
 ```bash
+cd scripts
 python3 transcribe_audio.py
 ```
 
 This will:
-- Download audio files from Firebase Storage to `audio_files/`
+- Download audio files from Firebase Storage to `data/audio_files/`
 - Transcribe each audio response using Whisper
-- Save results to `final_with_transcriptions.json`
+- Save results to `data/final_with_transcriptions.json`
 
-**Note:** Initial transcription uses the "base" Whisper model and takes approximately 2-3 minutes for 74 audio files.
+**Note:** Initial transcription uses the "base" Whisper model and takes approximately 2-3 minutes for all audio files.
 
 ### Generating CSV Reports
 
 Generate all CSV reports from the transcribed data:
 
 ```bash
+cd scripts
 python3 generate_csv.py
 ```
 
 This creates:
-- 16 individual user CSV files in `user_csvs/`
-- 1 comprehensive statistics file: `statistics_all_users.csv`
+- Individual user CSV files in `output/user_csvs/<user_id>/`
+- General statistics in `output/general_statistics/`
 
 ### Re-transcribing with Better Accuracy
 
 If transcription accuracy is insufficient, re-transcribe with improved settings:
 
 ```bash
+cd scripts
 python3 retranscribe_audio.py
 ```
 
@@ -142,6 +172,7 @@ This uses optimized Whisper parameters:
 
 After re-transcription, regenerate CSVs:
 ```bash
+cd scripts
 python3 generate_csv.py
 ```
 
@@ -151,7 +182,7 @@ python3 generate_csv.py
 
 ### Individual User CSVs
 
-**Location:** `user_csvs/<user_id>/`
+**Location:** `output/user_csvs/<user_id>/`
 
 Each user has a dedicated folder containing two CSV files:
 
@@ -160,7 +191,8 @@ Each user has a dedicated folder containing two CSV files:
 Contains key statistics and metadata in a key-value format:
 - Email address
 - Submission timestamp
-- Answer counts
+- Answer counts (Total, Unanswered)
+- Correct/Wrong answers (empty for manual verification)
 - Time spent
 - Tab change count
 - Current section (for in-progress users)
@@ -174,16 +206,17 @@ Contains a table with all questions answered by the user:
 - User responses (text or audio transcription)
 - Timing information
 - Audio URLs (for audio responses)
+- Correct/Wrong columns (empty for manual verification)
 
 **This file is also optimized for GitHub viewing** - GitHub automatically renders CSV files as tables.
 
 **Example:** 
-- `user_csvs/hXKCWwzPgWQ17gIEU9nKwtLaZx73/summary.csv`
-- `user_csvs/hXKCWwzPgWQ17gIEU9nKwtLaZx73/answers.csv`
+- `output/user_csvs/hXKCWwzPgWQ17gIEU9nKwtLaZx73/summary.csv`
+- `output/user_csvs/hXKCWwzPgWQ17gIEU9nKwtLaZx73/answers.csv`
 
 ### General Statistics CSVs
 
-**Location:** `general_statistics/`
+**Location:** `output/general_statistics/`
 
 Contains two CSV files with aggregated statistics:
 
@@ -203,7 +236,10 @@ Contains aggregated metrics across all users in a key-value format:
 Contains a table comparing all users side-by-side:
 - User ID and email
 - Status (Submitted/In Progress)
-- Answer counts by type
+- Total questions and answered count
+- Unanswered count (calculated automatically)
+- Correct/Wrong counts (empty for manual verification)
+- Answer counts by type (text/audio)
 - Average response times
 - Tab changes
 - Time spent
@@ -253,6 +289,8 @@ Contains a table comparing all users side-by-side:
 | `Answered At (Timestamp)` | ISO timestamp when answered | 2025-12-18T15:28:11.971Z |
 | `Question Displayed At (Timestamp)` | ISO timestamp when question was shown | 2025-12-18T15:27:29.647Z |
 | `Audio Question Duration (mm:ss)` | Duration of audio question playback | 0:01 |
+| `Correct` | Manual verification field for correct answers | *[to be filled]* |
+| `Wrong` | Manual verification field for wrong answers | *[to be filled]* |
 
 ---
 

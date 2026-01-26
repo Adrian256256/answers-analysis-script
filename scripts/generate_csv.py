@@ -8,20 +8,20 @@ def load_data():
     """Încarcă datele din final_with_transcriptions.json (sau final.json dacă nu există)"""
     # Încearcă să încarce fișierul cu transcripții
     import os
-    if os.path.exists('final_with_transcriptions.json'):
+    if os.path.exists('../data/final_with_transcriptions.json'):
         print('📝 Using final_with_transcriptions.json (with audio transcriptions)')
-        with open('final_with_transcriptions.json', 'r', encoding='utf-8') as f:
+        with open('../data/final_with_transcriptions.json', 'r', encoding='utf-8') as f:
             return json.load(f)
     else:
         print('📝 Using final.json (no transcriptions yet)')
-        with open('final.json', 'r', encoding='utf-8') as f:
+        with open('../data/final.json', 'r', encoding='utf-8') as f:
             return json.load(f)
 
 def load_questions():
     """Încarcă maparea întrebărilor din questions_map.json"""
     import os
-    if os.path.exists('questions_map.json'):
-        with open('questions_map.json', 'r', encoding='utf-8') as f:
+    if os.path.exists('../data/questions_map.json'):
+        with open('../data/questions_map.json', 'r', encoding='utf-8') as f:
             return json.load(f)
     return {}
 
@@ -63,7 +63,7 @@ def get_user_email(user_id, data):
     user_info = users.get(user_id, {})
     return user_info.get('email', 'N/A')
 
-def create_user_csv(user_id, data, questions_map, output_dir='user_csvs'):
+def create_user_csv(user_id, data, questions_map, output_dir='../output/user_csvs'):
     """Creează două CSV-uri pentru un user specific: summary.csv și answers.csv"""
     # Creează un folder pentru acest user
     user_folder = os.path.join(output_dir, user_id)
@@ -183,7 +183,7 @@ def create_user_csv(user_id, data, questions_map, output_dir='user_csvs'):
     
     print(f'Created CSVs for user: {user_id}')
 
-def create_statistics_csv(data, output_dir='general_statistics'):
+def create_statistics_csv(data, output_dir='../output/general_statistics'):
     """Creează două CSV-uri separate cu statistici: summary.csv și users.csv"""
     
     # Creează folderul pentru statistici
