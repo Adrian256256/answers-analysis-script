@@ -514,17 +514,6 @@ All CSV files are optimized for viewing directly on GitHub:
    - `summary.csv` - Aggregated metrics across all users
    - `users.csv` - Comparison table of all users side-by-side
 
-**Perfect for quick overview** - See all statistics at a glance!
-
-### Benefits of this Structure
-
-✅ **Easy navigation** - Each user and statistics have dedicated folders  
-✅ **GitHub-friendly** - CSV files render as tables automatically  
-✅ **Organized** - Separate files for summary vs detailed data  
-✅ **Shareable** - Direct links to specific user or statistics data  
-✅ **Clean commits** - Changes to one user don't affect others  
-✅ **Quick comparison** - Users table allows side-by-side comparison
-
 ---
 
 ## Notes
