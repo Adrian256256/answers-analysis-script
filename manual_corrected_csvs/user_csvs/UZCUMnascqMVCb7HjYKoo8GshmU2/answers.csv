@@ -1,0 +1,18 @@
+Question ID,Question Text,Answer Type,User Answer (Text),Audio URL,Transcription (Audio Answers),Time to Answer (mm:ss),Answered At (Timestamp),Question Displayed At (Timestamp),Audio Question Duration (mm:ss),Correct,Wrong
+section1_accomodation_Q1,What is your age?,Text,21,,,0:03,2026-01-05T11:12:30.519Z,2026-01-05T11:12:27.199Z,,,
+section1_accomodation_Q2,Choose what best describes you:,Text,working student,,,0:04,2026-01-05T11:12:34.761Z,2026-01-05T11:12:30.565Z,,,
+section1_accomodation_Q4,"Would you say you remember information better when you hear it or when you see it (for example, by reading or looking at images)?",Text,I remember better when I read.,,,0:08,2026-01-05T11:12:49.831Z,2026-01-05T11:12:41.426Z,,,
+section1_accomodation_Q5,Can you remember what the first question was? Write it down.,Text,"What day it is today
+",,,0:10,2026-01-05T11:12:59.951Z,2026-01-05T11:12:49.872Z,,,
+section2_control_Q11,Which CPU part temporarily stores instructions and data?,Text,"idk
+",,,0:04,2026-01-05T11:14:24.303Z,2026-01-05T11:14:19.873Z,,,
+section2_control_Q6,Which OSI layer ensures reliable data delivery?,Text,5,,,0:05,2026-01-05T11:14:05.279Z,2026-01-05T11:13:59.832Z,,,
+section2_control_Q7,Which protocol secures web communication?,Text,http,,,0:04,2026-01-05T11:14:10.095Z,2026-01-05T11:14:05.320Z,,,
+section2_control_Q8,Which port number is used by HTTPS?,Text,443,,,0:03,2026-01-05T11:14:13.551Z,2026-01-05T11:14:10.136Z,,,
+section2_control_Q9,Which data structure uses nodes connected by edges?,Text,graphs,,,0:06,2026-01-05T11:14:19.832Z,2026-01-05T11:14:13.593Z,,,
+section2_standard_Q11,Which component controls data flow within the CPU?,Text,idk,,,0:05,2026-01-05T11:13:59.791Z,2026-01-05T11:13:53.967Z,,,
+section2_standard_Q6,Which layer of the OSI model handles routing and IP addressing?,Text,3,,,0:09,2026-01-05T11:13:09.943Z,2026-01-05T11:12:59.992Z,,,
+section2_standard_Q7,Which protocol is used for secure file transfer over SSH?,Text,sftp,,,0:05,2026-01-05T11:13:25.074Z,2026-01-05T11:13:19.746Z,,,
+section2_standard_Q8,Which port number is used by HTTP?,Text,80,,,0:20,2026-01-05T11:13:45.248Z,2026-01-05T11:13:25.116Z,,,
+section2_standard_Q9,Which data structure uses hierarchical parent-child relationships?,Text,"tree
+",,,0:08,2026-01-05T11:13:53.927Z,2026-01-05T11:13:45.288Z,,,
