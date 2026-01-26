@@ -29,7 +29,7 @@ def parse_exam_questions():
             continue
         
         # Detectează întrebare + question pe aceeași linie (format compact)
-        inline_q_match = re.match(r'\s*(Q\d+):\s*\{.*question:\s*"([^"]+)".*(?:tts_text:\s*"([^"]+)")?', line)
+        inline_q_match = re.match(r'\s*(Q\d+)\s*:\s*\{.*question:\s*"([^"]+)"', line)
         if inline_q_match and current_section:
             # Salvează întrebarea anterioară
             if current_question and current_question_text:
@@ -38,7 +38,10 @@ def parse_exam_questions():
             
             current_question = inline_q_match.group(1)
             current_question_text = inline_q_match.group(2)
-            current_tts_text = inline_q_match.group(3) if inline_q_match.group(3) else None
+            
+            # Caută tts_text pe aceeași linie
+            tts_match = re.search(r'tts_text:\s*"([^"]+)"', line)
+            current_tts_text = tts_match.group(1) if tts_match else None
             
             # Salvează imediat pentru format inline
             full_id = f"{current_section}_{current_question}"
