@@ -99,11 +99,21 @@ def create_user_csv(user_id, data, questions_map, output_dir='user_csvs'):
             submit_time = datetime.fromisoformat(user_data['timestamp'].replace('Z', '+00:00'))
             writer.writerow(['Submission Time (Date/Time)', submit_time.strftime('%Y-%m-%d %H:%M:%S')])
         
-        # Rezultate (fără correct answers și scor)
+        # Rezultate
         if 'answeredCount' in user_data:
             writer.writerow(['Answered Count (Total)', user_data['answeredCount']])
         if 'totalQuestions' in user_data:
-            writer.writerow(['Total Questions (Count)', user_data['totalQuestions']])
+            total_questions = user_data['totalQuestions']
+            answered_count = user_data.get('answeredCount', 0)
+            unanswered = total_questions - answered_count
+            
+            writer.writerow(['Total Questions (Count)', total_questions])
+            writer.writerow(['Unanswered Questions (Count)', unanswered])
+        
+        # Correct/Wrong answers - pentru completare manuală
+        writer.writerow(['Correct Answers (Count)', ''])  # Gol pentru completare manuală
+        writer.writerow(['Wrong Answers (Count)', ''])    # Gol pentru completare manuală
+        
         if 'timeSpent' in user_data:
             time_spent_formatted = seconds_to_time_format(user_data['timeSpent'])
             writer.writerow(['Time Spent (mm:ss)', time_spent_formatted])
@@ -135,7 +145,7 @@ def create_user_csv(user_id, data, questions_map, output_dir='user_csvs'):
             writer = csv.writer(f)
             writer.writerow(['Question ID', 'Question Text', 'Answer Type', 'User Answer (Text)', 'Audio URL', 
                            'Transcription (Audio Answers)', 'Time to Answer (mm:ss)', 'Answered At (Timestamp)', 
-                           'Question Displayed At (Timestamp)', 'Audio Question Duration (mm:ss)'])
+                           'Question Displayed At (Timestamp)', 'Audio Question Duration (mm:ss)', 'Correct', 'Wrong'])
             
             for question_id, answer in sorted(user_data['answers'].items()):
                 answer_type = 'Audio' if 'audioUrl' in answer else 'Text'
@@ -166,7 +176,9 @@ def create_user_csv(user_id, data, questions_map, output_dir='user_csvs'):
                     time_to_answer,
                     answered_at,
                     displayed_at,
-                    audio_duration
+                    audio_duration,
+                    '',  # Correct - empty for manual verification
+                    ''   # Wrong - empty for manual verification
                 ])
     
     print(f'Created CSVs for user: {user_id}')
@@ -298,7 +310,11 @@ def create_statistics_csv(data, output_dir='general_statistics'):
             'User ID', 
             'Email',
             'Status',
-            'Total Answers (Count)', 
+            'Total Questions (Count)',
+            'Answered (Count)',
+            'Unanswered (Count)',
+            'Correct (Count)',
+            'Wrong (Count)',
             'Text Answers (Count)', 
             'Audio Answers (Count)',
             'Average Time to Answer (mm:ss)',
@@ -318,16 +334,20 @@ def create_statistics_csv(data, output_dir='general_statistics'):
                     user_id,
                     email,
                     'No Data',
-                    'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'
+                    'N/A', 'N/A', 'N/A', '', '', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A'
                 ])
                 continue
             
             email = get_user_email(user_id, data)
             status = 'Submitted' if is_submitted else 'In Progress'
             
+            # Calculează Total Questions și Unanswered
+            total_questions = user_data.get('totalQuestions', 'N/A')
+            answered_count = user_data.get('answeredCount', 0)
+            unanswered = total_questions - answered_count if isinstance(total_questions, int) else 'N/A'
+            
             # Contorizare răspunsuri
             answers = user_data.get('answers', {})
-            total_answers = len(answers)
             
             text_answers = sum(1 for ans in answers.values() if 'text' in ans)
             audio_answers = sum(1 for ans in answers.values() if 'audioUrl' in ans)
@@ -357,7 +377,11 @@ def create_statistics_csv(data, output_dir='general_statistics'):
                 user_id,
                 email,
                 status,
-                total_answers,
+                total_questions,
+                answered_count,
+                unanswered,
+                '',  # Correct - gol pentru completare manuală
+                '',  # Wrong - gol pentru completare manuală
                 text_answers,
                 audio_answers,
                 avg_time_formatted,

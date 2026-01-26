@@ -215,6 +215,9 @@
     "uUx5MPncXHXkLDXkejpBQMgnhIS2": {
       "submitted": true
     },
+    "y3oJxKfl3sdDTMEk9Gq64OtQRaF3": {
+      "submitted": true
+    },
     "yWVzDzDXQwWys4aHbPKJV2Oadwy2": {
       "submitted": true
     },
@@ -3776,6 +3779,271 @@
         "userId": "uUx5MPncXHXkLDXkejpBQMgnhIS2"
       }
     },
+    "y3oJxKfl3sdDTMEk9Gq64OtQRaF3": {
+      "-OjtcAGG86ezmicV6Rrs": {
+        "analysis": {
+          "section1_accomodation_Q1": {
+            "correct": false,
+            "userAnswer": "24"
+          },
+          "section1_accomodation_Q2": {
+            "correct": false,
+            "userAnswer": "student"
+          },
+          "section1_accomodation_Q4": {
+            "correct": false,
+            "userAnswer": "I remember better when I hear."
+          },
+          "section1_accomodation_Q5": {
+            "correct": false,
+            "userAnswer": "What day it is"
+          },
+          "section2_control_Q1": {
+            "correct": true,
+            "expectedAnswers": [
+              "Binary"
+            ],
+            "userAnswer": "Binary"
+          },
+          "section2_control_Q3": {
+            "correct": false,
+            "expectedAnswers": [
+              "Instruction Set Architecture"
+            ],
+            "userAnswer": "idk"
+          },
+          "section2_control_Q5": {
+            "correct": true,
+            "expectedAnswers": [
+              "NOT",
+              "NOT gate"
+            ],
+            "userAnswer": "Not"
+          },
+          "section2_control_Q6": {
+            "correct": false,
+            "expectedAnswers": [
+              "Transport layer"
+            ],
+            "userAnswer": "Transport"
+          },
+          "section2_control_Q9": {
+            "correct": true,
+            "expectedAnswers": [
+              "Graph"
+            ],
+            "userAnswer": "Graph"
+          },
+          "section2_standard_Q1": {
+            "correct": true,
+            "expectedAnswers": [
+              "8",
+              "eight"
+            ],
+            "userAnswer": "eight"
+          },
+          "section2_standard_Q3": {
+            "correct": false,
+            "expectedAnswers": [
+              "ALU",
+              "Arithmetic Logic Unit"
+            ],
+            "userAnswer": "UAL"
+          },
+          "section2_standard_Q5": {
+            "correct": false,
+            "expectedAnswers": [
+              "AND",
+              "AND gate"
+            ],
+            "userAnswer": "Or"
+          },
+          "section2_standard_Q6": {
+            "correct": true,
+            "expectedAnswers": [
+              "Network layer"
+            ],
+            "userAnswer": "Network Layer"
+          },
+          "section2_standard_Q9": {
+            "correct": true,
+            "expectedAnswers": [
+              "Tree"
+            ],
+            "userAnswer": "Tree"
+          }
+        },
+        "answeredCount": 21,
+        "answers": {
+          "section1_accomodation_Q1": {
+            "answeredAt": "2026-01-26T09:23:17.035Z",
+            "questionDisplayedAt": "2026-01-26T09:23:12.827Z",
+            "text": "24",
+            "timeToAnswerMs": 4208
+          },
+          "section1_accomodation_Q2": {
+            "answeredAt": "2026-01-26T09:23:20.054Z",
+            "questionDisplayedAt": "2026-01-26T09:23:17.116Z",
+            "text": "student",
+            "timeToAnswerMs": 2938
+          },
+          "section1_accomodation_Q3": {
+            "answeredAt": "2026-01-26T09:23:31.240Z",
+            "audioQuestionDurationMs": 1656,
+            "audioUrl": "https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2Fy3oJxKfl3sdDTMEk9Gq64OtQRaF3%2Fsection1_accomodation_Q3%2F1769419409096.webm?alt=media&token=fc4080fc-3508-4e9d-861b-ea10966cdae2",
+            "questionDisplayedAt": "2026-01-26T09:23:20.127Z",
+            "storagePath": "examAnswers/y3oJxKfl3sdDTMEk9Gq64OtQRaF3/section1_accomodation_Q3/1769419409096.webm",
+            "timeToAnswerMs": 11113,
+            "transcription": "Today it is Monday."
+          },
+          "section1_accomodation_Q4": {
+            "answeredAt": "2026-01-26T09:23:35.138Z",
+            "questionDisplayedAt": "2026-01-26T09:23:31.314Z",
+            "text": "I remember better when I hear.",
+            "timeToAnswerMs": 3824
+          },
+          "section1_accomodation_Q5": {
+            "answeredAt": "2026-01-26T09:23:44.575Z",
+            "questionDisplayedAt": "2026-01-26T09:23:36.220Z",
+            "text": "What day it is",
+            "timeToAnswerMs": 8355
+          },
+          "section2_control_Q1": {
+            "answeredAt": "2026-01-26T09:24:28.083Z",
+            "questionDisplayedAt": "2026-01-26T09:24:24.218Z",
+            "text": "Binary",
+            "timeToAnswerMs": 3865
+          },
+          "section2_control_Q3": {
+            "answeredAt": "2026-01-26T09:24:34.678Z",
+            "questionDisplayedAt": "2026-01-26T09:24:28.156Z",
+            "text": "idk",
+            "timeToAnswerMs": 6522
+          },
+          "section2_control_Q5": {
+            "answeredAt": "2026-01-26T09:24:39.086Z",
+            "questionDisplayedAt": "2026-01-26T09:24:34.747Z",
+            "text": "Not",
+            "timeToAnswerMs": 4339
+          },
+          "section2_control_Q6": {
+            "answeredAt": "2026-01-26T09:24:44.258Z",
+            "questionDisplayedAt": "2026-01-26T09:24:39.160Z",
+            "text": "Transport",
+            "timeToAnswerMs": 5098
+          },
+          "section2_control_Q9": {
+            "answeredAt": "2026-01-26T09:24:51.904Z",
+            "questionDisplayedAt": "2026-01-26T09:24:44.337Z",
+            "text": "Graph",
+            "timeToAnswerMs": 7567
+          },
+          "section2_standard_Q1": {
+            "answeredAt": "2026-01-26T09:23:49.320Z",
+            "questionDisplayedAt": "2026-01-26T09:23:44.659Z",
+            "text": "eight",
+            "timeToAnswerMs": 4661
+          },
+          "section2_standard_Q3": {
+            "answeredAt": "2026-01-26T09:23:56.122Z",
+            "questionDisplayedAt": "2026-01-26T09:23:49.391Z",
+            "text": "UAL",
+            "timeToAnswerMs": 6731
+          },
+          "section2_standard_Q5": {
+            "answeredAt": "2026-01-26T09:24:10.762Z",
+            "questionDisplayedAt": "2026-01-26T09:23:56.207Z",
+            "text": "Or",
+            "timeToAnswerMs": 14555
+          },
+          "section2_standard_Q6": {
+            "answeredAt": "2026-01-26T09:24:17.671Z",
+            "questionDisplayedAt": "2026-01-26T09:24:10.834Z",
+            "text": "Network Layer",
+            "timeToAnswerMs": 6837
+          },
+          "section2_standard_Q9": {
+            "answeredAt": "2026-01-26T09:24:24.150Z",
+            "questionDisplayedAt": "2026-01-26T09:24:17.755Z",
+            "text": "Tree",
+            "timeToAnswerMs": 6395
+          },
+          "section3_control_Q3": {
+            "answeredAt": "2026-01-26T09:25:58.652Z",
+            "audioQuestionDurationMs": 4176,
+            "audioUrl": "https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2Fy3oJxKfl3sdDTMEk9Gq64OtQRaF3%2Fsection3_control_Q3%2F1769419557749.webm?alt=media&token=5c6a0690-6cf6-41fe-9565-2d34bbacf22a",
+            "questionDisplayedAt": "2026-01-26T09:25:49.413Z",
+            "storagePath": "examAnswers/y3oJxKfl3sdDTMEk9Gq64OtQRaF3/section3_control_Q3/1769419557749.webm",
+            "timeToAnswerMs": 9239,
+            "transcription": "Allure."
+          },
+          "section3_control_Q9": {
+            "answeredAt": "2026-01-26T09:26:17.292Z",
+            "audioQuestionDurationMs": 3910,
+            "audioUrl": "https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2Fy3oJxKfl3sdDTMEk9Gq64OtQRaF3%2Fsection3_control_Q9%2F1769419576584.webm?alt=media&token=62e4a14f-c29d-42db-9b7c-635fd5bc1130",
+            "questionDisplayedAt": "2026-01-26T09:26:07.503Z",
+            "storagePath": "examAnswers/y3oJxKfl3sdDTMEk9Gq64OtQRaF3/section3_control_Q9/1769419576584.webm",
+            "timeToAnswerMs": 9789,
+            "transcription": "Queue."
+          },
+          "section3_standard_Q11": {
+            "answeredAt": "2026-01-26T09:25:49.327Z",
+            "audioQuestionDurationMs": 4355,
+            "audioUrl": "https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2Fy3oJxKfl3sdDTMEk9Gq64OtQRaF3%2Fsection3_standard_Q11%2F1769419548393.webm?alt=media&token=32de0dab-e61c-4355-afa4-7cd7f6dac577",
+            "questionDisplayedAt": "2026-01-26T09:25:36.389Z",
+            "storagePath": "examAnswers/y3oJxKfl3sdDTMEk9Gq64OtQRaF3/section3_standard_Q11/1769419548393.webm",
+            "timeToAnswerMs": 12938,
+            "transcription": "I don't know."
+          },
+          "section3_standard_Q3": {
+            "answeredAt": "2026-01-26T09:25:02.127Z",
+            "audioQuestionDurationMs": 2828,
+            "audioUrl": "https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2Fy3oJxKfl3sdDTMEk9Gq64OtQRaF3%2Fsection3_standard_Q3%2F1769419500799.webm?alt=media&token=237f225a-9086-4478-89d1-75ad483a7010",
+            "questionDisplayedAt": "2026-01-26T09:24:51.987Z",
+            "storagePath": "examAnswers/y3oJxKfl3sdDTMEk9Gq64OtQRaF3/section3_standard_Q3/1769419500799.webm",
+            "timeToAnswerMs": 10140,
+            "transcription": "DRIVERS."
+          },
+          "section3_standard_Q5": {
+            "answeredAt": "2026-01-26T09:25:17.589Z",
+            "audioQuestionDurationMs": 5493,
+            "audioUrl": "https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2Fy3oJxKfl3sdDTMEk9Gq64OtQRaF3%2Fsection3_standard_Q5%2F1769419515937.webm?alt=media&token=d7813196-3cfa-4aef-8241-9c5b80e1a5bc",
+            "questionDisplayedAt": "2026-01-26T09:25:02.202Z",
+            "storagePath": "examAnswers/y3oJxKfl3sdDTMEk9Gq64OtQRaF3/section3_standard_Q5/1769419515937.webm",
+            "timeToAnswerMs": 15387,
+            "transcription": "I don't know."
+          },
+          "section3_standard_Q9": {
+            "answeredAt": "2026-01-26T09:25:28.853Z",
+            "audioQuestionDurationMs": 4254,
+            "audioUrl": "https://firebasestorage.googleapis.com/v0/b/exametric-439ba.firebasestorage.app/o/examAnswers%2Fy3oJxKfl3sdDTMEk9Gq64OtQRaF3%2Fsection3_standard_Q9%2F1769419527767.webm?alt=media&token=e90d9501-9925-4a15-9e17-3ebead919142",
+            "questionDisplayedAt": "2026-01-26T09:25:17.670Z",
+            "storagePath": "examAnswers/y3oJxKfl3sdDTMEk9Gq64OtQRaF3/section3_standard_Q9/1769419527767.webm",
+            "timeToAnswerMs": 11183,
+            "transcription": "Who's tech?"
+          }
+        },
+        "correctAnswers": 6,
+        "email": "user693075@exam.org",
+        "score": 29,
+        "tabChangeCount": 1,
+        "tabChangeEvents": [
+          {
+            "timestamp": "2026-01-26T09:26:31.926Z",
+            "wasHidden": true
+          },
+          {
+            "durationHiddenMs": 18640,
+            "timestamp": "2026-01-26T09:26:50.566Z",
+            "wasHidden": false
+          }
+        ],
+        "timeSpent": 224,
+        "timestamp": "2026-01-26T09:26:57.364Z",
+        "totalQuestions": 25,
+        "userId": "y3oJxKfl3sdDTMEk9Gq64OtQRaF3"
+      }
+    },
     "yWVzDzDXQwWys4aHbPKJV2Oadwy2": {
       "-Oi9qvdm8yeguC9hwmaX": {
         "analysis": {
@@ -4351,6 +4619,11 @@
     "uUx5MPncXHXkLDXkejpBQMgnhIS2": {
       "email": "user526963@exam.org",
       "name": "User526963",
+      "role": "examTaker"
+    },
+    "y3oJxKfl3sdDTMEk9Gq64OtQRaF3": {
+      "email": "user693075@exam.org",
+      "name": "User693075",
       "role": "examTaker"
     },
     "yWVzDzDXQwWys4aHbPKJV2Oadwy2": {

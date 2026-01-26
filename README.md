@@ -230,6 +230,9 @@ Contains a table comparing all users side-by-side:
 | `Submission Time (Date/Time)` | Timestamp of exam submission | 2025-12-18 15:36:43 |
 | `Answered Count (Total)` | Total number of questions answered | 25 |
 | `Total Questions (Count)` | Total questions in exam | 25 |
+| `Unanswered Questions (Count)` | Questions not answered (auto-calculated) | 0 |
+| `Correct Answers (Count)` | Correct answers (empty for manual entry) | *[to be filled]* |
+| `Wrong Answers (Count)` | Wrong answers (empty for manual entry) | *[to be filled]* |
 | `Time Spent (mm:ss)` | Total time spent on exam | 9:21 |
 | `Start Time (Date/Time)` | Timestamp when exam started | 2025-12-18 15:27:22 |
 | `Current Section` | Current section (for incomplete exams) | section3_standard |
