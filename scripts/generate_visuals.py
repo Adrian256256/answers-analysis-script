@@ -372,6 +372,300 @@ def generate_summary_table(users_data):
     print("✓ Generated: 6_summary_table.png")
 
 
+def generate_text_vs_audio_detailed_comparison(users_data):
+    """Generate simple, clear comparison of total correct answers."""
+    text_correct = sum(u['text_correct'] for u in users_data)
+    text_wrong = sum(u['text_wrong'] for u in users_data)
+    audio_correct = sum(u['audio_correct'] for u in users_data)
+    audio_wrong = sum(u['audio_wrong'] for u in users_data)
+    
+    text_total = text_correct + text_wrong
+    audio_total = audio_correct + audio_wrong
+    
+    fig, ax = plt.subplots(figsize=(12, 8))
+    
+    # Simple side-by-side comparison
+    categories = ['Text Questions', 'Audio Questions']
+    correct_vals = [text_correct, audio_correct]
+    wrong_vals = [text_wrong, audio_wrong]
+    
+    x = np.arange(len(categories))
+    width = 0.35
+    
+    bars1 = ax.bar(x - width/2, correct_vals, width, label='Correct Answers', 
+                   color=COLOR_CORRECT, alpha=0.85, edgecolor='black', linewidth=2)
+    bars2 = ax.bar(x + width/2, wrong_vals, width, label='Incorrect Answers',
+                   color=COLOR_WRONG, alpha=0.85, edgecolor='black', linewidth=2)
+    
+    # Add large value labels on bars
+    for bar, val in zip(bars1, correct_vals):
+        height = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width()/2., height/2,
+                f'{val}',
+                ha='center', va='center', fontsize=20, fontweight='bold', color='white')
+    
+    for bar, val in zip(bars2, wrong_vals):
+        height = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width()/2., height/2,
+                f'{val}',
+                ha='center', va='center', fontsize=20, fontweight='bold', color='white')
+    
+    # Add total annotations above bars
+    for i, (correct, wrong) in enumerate(zip(correct_vals, wrong_vals)):
+        total = correct + wrong
+        ax.text(x[i], max(correct, wrong) + 10,
+               f'Total: {total} answers',
+               ha='center', va='bottom', fontsize=12, fontweight='bold',
+               bbox=dict(boxstyle='round,pad=0.5', facecolor='lightblue', alpha=0.7))
+    
+    ax.set_ylabel('Number of Answers', fontsize=14, fontweight='bold')
+    ax.set_title('How Many Answers Were Correct?\nText Questions vs Audio Questions', 
+                 fontsize=16, fontweight='bold', pad=20)
+    ax.set_xticks(x)
+    ax.set_xticklabels(categories, fontsize=13, fontweight='bold')
+    ax.legend(fontsize=12, loc='upper right')
+    ax.grid(axis='y', alpha=0.3, linestyle='--')
+    ax.set_ylim(0, max(max(correct_vals), max(wrong_vals)) * 1.25)
+    
+    # Add explanation box
+    explanation = f'Text Questions: {text_correct}/{text_total} correct\nAudio Questions: {audio_correct}/{audio_total} correct'
+    ax.text(0.02, 0.98, explanation, transform=ax.transAxes,
+           fontsize=11, verticalalignment='top',
+           bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.8))
+    
+    plt.tight_layout()
+    plt.savefig(VISUALS_DIR / '7_total_correct_comparison.png', dpi=300, bbox_inches='tight')
+    plt.close()
+    print("✓ Generated: 7_total_correct_comparison.png")
+
+
+def generate_user_text_vs_audio_performance(users_data):
+    """Generate simple chart showing accuracy percentages for text vs audio."""
+    text_correct = sum(u['text_correct'] for u in users_data)
+    text_wrong = sum(u['text_wrong'] for u in users_data)
+    audio_correct = sum(u['audio_correct'] for u in users_data)
+    audio_wrong = sum(u['audio_wrong'] for u in users_data)
+    
+    text_total = text_correct + text_wrong
+    audio_total = audio_correct + audio_wrong
+    
+    text_accuracy = text_correct / text_total * 100 if text_total > 0 else 0
+    audio_accuracy = audio_correct / audio_total * 100 if audio_total > 0 else 0
+    
+    fig, ax = plt.subplots(figsize=(10, 7))
+    
+    categories = ['Text Questions', 'Audio Questions']
+    accuracies = [text_accuracy, audio_accuracy]
+    colors = [COLOR_TEXT, COLOR_AUDIO]
+    
+    bars = ax.bar(categories, accuracies, color=colors, alpha=0.85, 
+                  edgecolor='black', linewidth=3, width=0.6)
+    
+    # Add large percentage labels
+    for bar, acc in zip(bars, accuracies):
+        height = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width()/2., height/2,
+               f'{acc:.1f}%',
+               ha='center', va='center', fontsize=28, fontweight='bold', color='white')
+    
+    # Add reference lines with labels
+    ax.axhline(y=80, color='green', linestyle='--', linewidth=2, alpha=0.5)
+    ax.text(0.02, 81, 'Pass threshold (80%)', fontsize=10, color='green', 
+           fontweight='bold', transform=ax.get_yaxis_transform())
+    
+    ax.axhline(y=60, color='orange', linestyle='--', linewidth=2, alpha=0.5)
+    ax.text(0.02, 61, 'Satisfactory (60%)', fontsize=10, color='orange',
+           fontweight='bold', transform=ax.get_yaxis_transform())
+    
+    ax.set_ylabel('Accuracy Percentage (%)', fontsize=14, fontweight='bold')
+    ax.set_title('Which Type of Questions Was Easier?\nAccuracy Comparison', 
+                 fontsize=16, fontweight='bold', pad=20)
+    ax.set_ylim(0, 100)
+    ax.set_xticklabels(categories, fontsize=13, fontweight='bold')
+    ax.grid(axis='y', alpha=0.3, linestyle='--')
+    
+    # Add performance difference annotation
+    diff = text_accuracy - audio_accuracy
+    diff_text = f'Text questions were {abs(diff):.1f}% {"easier" if diff > 0 else "harder"} than Audio'
+    ax.text(0.5, 0.95, diff_text, transform=ax.transAxes,
+           ha='center', va='top', fontsize=13, fontweight='bold',
+           bbox=dict(boxstyle='round,pad=0.8', facecolor='yellow', alpha=0.8))
+    
+    # Add summary box
+    summary = f'Text: {text_correct} correct out of {text_total}\nAudio: {audio_correct} correct out of {audio_total}'
+    ax.text(0.98, 0.02, summary, transform=ax.transAxes,
+           fontsize=11, verticalalignment='bottom', horizontalalignment='right',
+           bbox=dict(boxstyle='round', facecolor='lightblue', alpha=0.8))
+    
+    plt.tight_layout()
+    plt.savefig(VISUALS_DIR / '8_accuracy_percentage_comparison.png', dpi=300, bbox_inches='tight')
+    plt.close()
+    print("✓ Generated: 8_accuracy_percentage_comparison.png")
+
+
+def generate_text_audio_consistency_analysis(users_data):
+    """Show how many users prefer text vs audio based on their scores."""
+    # Filter users with both types
+    users_with_both = [u for u in users_data 
+                       if (u['text_correct'] + u['text_wrong']) > 0 
+                       and (u['audio_correct'] + u['audio_wrong']) > 0]
+    
+    if len(users_with_both) == 0:
+        print("⚠ Skipped: 9_user_preference_analysis.png (no users with both answer types)")
+        return
+    
+    # Count preferences
+    text_better = 0
+    audio_better = 0
+    equal = 0
+    
+    for user in users_with_both:
+        text_total = user['text_correct'] + user['text_wrong']
+        audio_total = user['audio_correct'] + user['audio_wrong']
+        
+        text_acc = user['text_correct'] / text_total * 100 if text_total > 0 else 0
+        audio_acc = user['audio_correct'] / audio_total * 100 if audio_total > 0 else 0
+        
+        diff = abs(text_acc - audio_acc)
+        
+        if diff < 2:  # Consider equal if difference is less than 2%
+            equal += 1
+        elif text_acc > audio_acc:
+            text_better += 1
+        else:
+            audio_better += 1
+    
+    fig, ax = plt.subplots(figsize=(12, 8))
+    
+    categories = ['Better at\nText Questions', 'Better at\nAudio Questions', 'Equal\nPerformance']
+    values = [text_better, audio_better, equal]
+    colors_bar = [COLOR_TEXT, COLOR_AUDIO, '#9E9E9E']
+    
+    bars = ax.bar(categories, values, color=colors_bar, alpha=0.85,
+                  edgecolor='black', linewidth=3, width=0.6)
+    
+    # Add large value labels
+    for bar, val in zip(bars, values):
+        height = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width()/2., height/2,
+               f'{val}\nusers',
+               ha='center', va='center', fontsize=18, fontweight='bold', color='white')
+        
+        # Add percentage above bar
+        pct = val / len(users_with_both) * 100
+        ax.text(bar.get_x() + bar.get_width()/2., height + 0.3,
+               f'{pct:.1f}%',
+               ha='center', va='bottom', fontsize=14, fontweight='bold')
+    
+    ax.set_ylabel('Number of Users', fontsize=14, fontweight='bold')
+    ax.set_title('Do Students Perform Better on Text or Audio Questions?\nUser Preference Analysis', 
+                 fontsize=16, fontweight='bold', pad=20)
+    ax.set_xticklabels(categories, fontsize=12, fontweight='bold')
+    ax.set_ylim(0, max(values) * 1.3)
+    ax.grid(axis='y', alpha=0.3, linestyle='--')
+    
+    # Add explanation
+    total_users = len(users_with_both)
+    explanation = f'Analysis based on {total_users} users who answered both types of questions\n'
+    explanation += f'"Equal" means the difference in accuracy is less than 2%'
+    ax.text(0.5, 0.95, explanation, transform=ax.transAxes,
+           ha='center', va='top', fontsize=11,
+           bbox=dict(boxstyle='round,pad=0.8', facecolor='lightyellow', alpha=0.9))
+    
+    plt.tight_layout()
+    plt.savefig(VISUALS_DIR / '9_user_preference_analysis.png', dpi=300, bbox_inches='tight')
+    plt.close()
+    print("✓ Generated: 9_user_preference_analysis.png")
+
+
+def generate_text_audio_statistical_summary(users_data):
+    """Simple breakdown showing the numbers behind text vs audio performance."""
+    text_correct = sum(u['text_correct'] for u in users_data)
+    text_wrong = sum(u['text_wrong'] for u in users_data)
+    audio_correct = sum(u['audio_correct'] for u in users_data)
+    audio_wrong = sum(u['audio_wrong'] for u in users_data)
+    
+    text_total = text_correct + text_wrong
+    audio_total = audio_correct + audio_wrong
+    
+    fig, ax = plt.subplots(figsize=(14, 9))
+    ax.axis('tight')
+    ax.axis('off')
+    
+    # Create simple, clear table
+    table_data = [
+        ['', 'Text Questions', 'Audio Questions', 'Difference'],
+        ['Total Questions', f'{text_total}', f'{audio_total}', f'{text_total - audio_total:+d}'],
+        ['Correct Answers', f'{text_correct}', f'{audio_correct}', f'{text_correct - audio_correct:+d}'],
+        ['Incorrect Answers', f'{text_wrong}', f'{audio_wrong}', f'{text_wrong - audio_wrong:+d}'],
+        ['Accuracy Rate', 
+         f'{text_correct/text_total*100:.1f}%', 
+         f'{audio_correct/audio_total*100:.1f}%', 
+         f'{(text_correct/text_total - audio_correct/audio_total)*100:+.1f}%'],
+    ]
+    
+    table = ax.table(cellText=table_data, cellLoc='center', loc='center',
+                     colWidths=[0.25, 0.25, 0.25, 0.25])
+    
+    table.auto_set_font_size(False)
+    table.set_fontsize(16)
+    table.scale(1, 3.5)
+    
+    # Style header row (row 0)
+    for i in range(4):
+        cell = table[(0, i)]
+        cell.set_facecolor('#2196F3')
+        cell.set_text_props(weight='bold', color='white', fontsize=18)
+        cell.set_height(0.15)
+    
+    # Style data rows with alternating colors
+    colors_alt = ['#E3F2FD', '#FFFFFF', '#E3F2FD', '#FFFFFF']
+    for i in range(1, 5):
+        for j in range(4):
+            cell = table[(i, j)]
+            cell.set_facecolor(colors_alt[i-1])
+            
+            # Make first column (labels) bold
+            if j == 0:
+                cell.set_text_props(fontsize=16, weight='bold', ha='left')
+            else:
+                cell.set_text_props(fontsize=18, weight='bold')
+            
+            # Highlight accuracy row
+            if i == 4:
+                cell.set_facecolor('#FFF9C4')
+                cell.set_text_props(fontsize=20, weight='bold')
+    
+    # Add title with explanation
+    title_text = 'The Numbers Behind Performance:\nText Questions vs Audio Questions'
+    ax.text(0.5, 0.95, title_text, transform=ax.transAxes,
+           ha='center', va='top', fontsize=20, fontweight='bold')
+    
+    # Add interpretation box
+    text_acc = text_correct/text_total*100
+    audio_acc = audio_correct/audio_total*100
+    diff = text_acc - audio_acc
+    
+    if abs(diff) < 2:
+        interpretation = 'Performance is nearly EQUAL on both question types'
+        box_color = 'lightgreen'
+    elif diff > 0:
+        interpretation = f'Students perform BETTER on Text questions by {abs(diff):.1f}%'
+        box_color = 'lightblue'
+    else:
+        interpretation = f'Students perform BETTER on Audio questions by {abs(diff):.1f}%'
+        box_color = 'lightyellow'
+    
+    ax.text(0.5, 0.08, interpretation, transform=ax.transAxes,
+           ha='center', va='top', fontsize=16, fontweight='bold',
+           bbox=dict(boxstyle='round,pad=1', facecolor=box_color, alpha=0.9, linewidth=3))
+    
+    plt.tight_layout()
+    plt.savefig(VISUALS_DIR / '10_numbers_breakdown.png', dpi=300, bbox_inches='tight')
+    plt.close()
+    print("✓ Generated: 10_numbers_breakdown.png")
+
+
 def main():
     """Main function to generate all visualizations."""
     print("\n" + "="*60)
@@ -384,12 +678,20 @@ def main():
     
     print("Generating charts and diagrams...\n")
     
+    # Original charts
     generate_overall_accuracy_chart(users_data)
     generate_text_vs_audio_chart(users_data)
     generate_user_performance_chart(users_data)
     generate_accuracy_distribution_chart(users_data)
     generate_pie_charts(users_data)
     generate_summary_table(users_data)
+    
+    # New detailed text vs audio analysis charts
+    print("\nGenerating detailed Text vs Audio analysis...\n")
+    generate_text_vs_audio_detailed_comparison(users_data)
+    generate_user_text_vs_audio_performance(users_data)
+    generate_text_audio_consistency_analysis(users_data)
+    generate_text_audio_statistical_summary(users_data)
     
     print("\n" + "="*60)
     print(f"All visualizations have been generated in: {VISUALS_DIR}")
