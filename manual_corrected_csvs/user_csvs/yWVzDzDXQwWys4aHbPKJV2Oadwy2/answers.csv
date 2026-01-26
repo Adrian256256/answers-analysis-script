@@ -6,7 +6,7 @@ section1_accomodation_Q4,"Would you say you remember information better when you
 section1_accomodation_Q5,Can you remember what the first question was? Write it down.,Text,What is your age?,,,0:15,2026-01-04T21:05:22.391Z,2026-01-04T21:05:07.340Z,,,
 section2_control_Q11,Which CPU part temporarily stores instructions and data?,Text,Registers,,,0:00,2026-01-04T21:09:47.831Z,2026-01-04T21:09:47.229Z,,✓,
 section2_control_Q12,What is the Big O time complexity of binary search?,Text,O(logn),,,0:10,2026-01-04T21:09:58.295Z,2026-01-04T21:09:47.892Z,,✓,
-section2_control_Q2,Which type of memory retains data even when power is off?,Text,"Non-volatile, SSD, HDD",,,0:00,2026-01-04T21:09:45.894Z,2026-01-04T21:09:45.243Z,✓,,
+section2_control_Q2,Which type of memory retains data even when power is off?,Text,"Non-volatile, SSD, HDD",,,0:00,2026-01-04T21:09:45.894Z,2026-01-04T21:09:45.243Z,,✓,
 section2_control_Q8,Which port number is used by HTTPS?,Text,443,,,0:00,2026-01-04T21:09:46.540Z,2026-01-04T21:09:45.986Z,,✓,
 section2_control_Q9,Which data structure uses nodes connected by edges?,Text,Graph,,,0:00,2026-01-04T21:09:47.168Z,2026-01-04T21:09:46.600Z,,✓,
 section2_standard_Q11,Which component controls data flow within the CPU?,Text,Memory Management Unit (MMU),,,0:31,2026-01-04T21:09:43.547Z,2026-01-04T21:09:11.858Z,,,✗
