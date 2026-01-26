@@ -1,28 +1,28 @@
 === GENERAL STATISTICS ===
 Metric,Value
-Total Users (Count),16
+Total Users (Count),19
 
-Total Answers (Count),242
-Total Text Answers (Count),168
-Total Audio Answers (Count),74
-Text vs Audio Ratio,2.27:1
+Total Answers (Count),304
+Total Text Answers (Count),208
+Total Audio Answers (Count),96
+Text vs Audio Ratio,2.17:1
 
-Average Time to Answer - Overall (mm:ss),0:24
-Average Time to Answer - Text (mm:ss),0:17
-Average Time to Answer - Audio (mm:ss),0:39
-Audio takes longer than Text by (mm:ss),0:22
-Audio/Text Time Ratio,2.29
+Average Time to Answer - Overall (mm:ss),0:22
+Average Time to Answer - Text (mm:ss),0:15
+Average Time to Answer - Audio (mm:ss),0:35
+Audio takes longer than Text by (mm:ss),0:19
+Audio/Text Time Ratio,2.24
 
-Average Tab Changes per User (Count),3.0
+Average Tab Changes per User (Count),3.17
 Max Tab Changes (Count),14
 Min Tab Changes (Count),0
-Users with 0 Tab Changes (Count),9
-Users with Tab Changes (Count),6
+Users with 0 Tab Changes (Count),10
+Users with Tab Changes (Count),8
 
-Total Answered Questions (Count),228
+Total Answered Questions (Count),290
 
-Total Time Spent by All Users (mm:ss),122:43
-Average Time Spent per User (mm:ss),10:13
+Total Time Spent by All Users (mm:ss),143:22
+Average Time Spent per User (mm:ss),9:33
 
 
 === INDIVIDUAL USER DATA ===
@@ -32,14 +32,17 @@ User ID,Email,Total Answers (Count),Text Answers (Count),Audio Answers (Count),A
 2gtbm9fZ3lgaFez20Japr0bRtvy1,user413588@exam.org,0,0,0,N/A,N/A,N/A,section1_accomodation,N/A
 2jx38lBdkJZAffOTjapIJUOkcmT2,user790199@exam.org,1,1,0,0:11,0,N/A,section1_accomodation,N/A
 3SZBa8bz71cc3n0GqPIe0Cp5EC13,user231523@exam.org,21,14,7,0:13,0,5:09,N/A,2026-01-04 10:30:56
+40MiKvCaZTeYzMFw2W7zAAPoK013,user583303@exam.org,21,14,7,0:17,6,7:01,N/A,2026-01-25 18:39:54
 7fRvTWeoKDPE5ZqfcBwpWY3qwpl1,vladioanbirsan@exam.org,25,14,11,0:31,0,14:25,N/A,2026-01-04 13:17:23
 D17ojtCGztVxasDNXMBYujIEp6T2,maxim.vaculenco@exam.org,22,14,8,0:39,3,18:11,N/A,2026-01-05 15:08:51
 I95XongADMhnGoykzUkcFxfx2Zg1,user840795@exam.org,2,2,0,0:07,0,N/A,section1_accomodation,N/A
 IiqIEVS8DYYdRwtxEKdYXTTdrb32,user334027@exam.org,22,13,9,0:26,0,17:58,N/A,2026-01-04 15:50:47
+Nvk4S0IpxPdddgBF499DwZz6FEh1,user955112@exam.org,22,13,9,0:13,0,8:31,N/A,2026-01-25 18:57:12
 UZCUMnascqMVCb7HjYKoo8GshmU2,user302995@exam.org,14,14,0,0:07,0,2:10,N/A,2026-01-05 11:14:38
 dwtLwhIgAyQAfqgq6BGgRYDqwdi2,user630936@exam.org,23,14,9,0:38,8,15:37,N/A,2026-01-05 16:58:34
 gc6iaZKC2uO6zKYvXL36lgPsQWL2,user207221@exam.org,14,14,0,0:16,5,4:09,N/A,2025-12-23 09:28:09
 hXKCWwzPgWQ17gIEU9nKwtLaZx73,user205520@exam.org,25,14,11,0:22,4,9:21,N/A,2025-12-18 15:36:43
 kzHpKFHMcPPnV8KAKZX4skbzRlM2,user196039@exam.org,14,14,0,0:25,11,6:34,N/A,2025-12-23 07:55:39
+uUx5MPncXHXkLDXkejpBQMgnhIS2,user526963@exam.org,19,13,6,0:10,6,5:07,N/A,2026-01-25 19:35:43
 yWVzDzDXQwWys4aHbPKJV2Oadwy2,user425140@exam.org,25,14,11,0:14,0,9:38,N/A,2026-01-04 21:13:33
 yskSrWOMY1dMfleJ1demTFRwmaB3,user311046@exam.org,5,5,0,0:35,14,10:45,N/A,2026-01-05 17:15:17
