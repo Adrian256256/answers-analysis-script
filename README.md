@@ -516,38 +516,6 @@ All CSV files are optimized for viewing directly on GitHub:
 
 ---
 
-## Notes
-
-1. **Transcription Quality**: 
-   - Initial transcriptions use Whisper "base" model
-   - Re-transcription available with optimized parameters for technical terms
-   - Some audio responses may contain background noise or unclear speech
-
-2. **Tab Changes**: 
-   - Tracked as potential indicator of multitasking or academic integrity issues
-   - 53% of users (10/19) never switched tabs
-   - Maximum observed: 14 tab changes
-
-3. **Time Calculations**:
-   - `Time to Answer` = `Answered At` - `Question Displayed At`
-   - Negative times possible if system clock adjustments occurred
-
-4. **Missing Data**:
-   - Some users have incomplete exams (4/19 in progress)
-   - N/A values indicate missing or inapplicable data
-
-5. **Audio Files**:
-   - Downloaded to `audio_files/` directory (96 files)
-   - Format: WebM (VP8/Opus)
-   - Naming convention: `{userId}_{questionId}.webm`
-
-6. **Privacy**: 
-   - User IDs are Firebase-generated unique identifiers
-   - Emails included for identification purposes
-   - Consider anonymization for sharing data
-
----
-
 ## License
 
 This project is for internal analysis purposes. Ensure compliance with data protection regulations (GDPR, etc.) when handling user data.
