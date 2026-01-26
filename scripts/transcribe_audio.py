@@ -40,18 +40,23 @@ def download_audio(url, output_path):
         return False
 
 def transcribe_with_whisper(audio_path, model):
-    """Transcribe audio using Whisper"""
+    """Transcribe audio using Whisper with optimized settings for accuracy"""
     try:
-        print(f"    Transcribing with Whisper...")
+        print(f"    Transcribing with Whisper (high accuracy mode)...")
         result = model.transcribe(
             str(audio_path),
             language="en",  # Force English for better technical term recognition
-            initial_prompt="Computer science exam. Technical terms: merge sort, heap sort, bubble sort, quick sort, insertion sort, binary search, linear search, polymorphism, inheritance, encapsulation, overloading, overriding, RAM, ROM, DRAM, SRAM, CPU, ALU, cache, control unit, LAN, WAN, network, router, switch, HTTP, HTTPS, port, binary, algorithm, data structure, queue, stack, tree, graph, complexity, Big O notation, SQL, WHERE, TRUNCATE.",
+            initial_prompt="Computer science exam. Technical terms: merge sort, heap sort, bubble sort, quick sort, insertion sort, binary search, linear search, polymorphism, inheritance, encapsulation, overloading, overriding, RAM, ROM, DRAM, SRAM, CPU, ALU, cache, control unit, LAN, WAN, network, router, switch, HTTP, HTTPS, port, binary, algorithm, data structure, queue, stack, tree, graph, complexity, Big O notation, SQL, WHERE, TRUNCATE, destructor, constructor, delete, new, kernel, driver, compiler, operating system, Dijkstra, greedy, round robin, scheduling, IPv4, IPv6, MAC address, Saturday, Sunday, Monday, Tuesday, Wednesday, Thursday, Friday.",
             verbose=False,  # Don't print progress bar
             temperature=0.0,  # More deterministic (less creative guessing)
             beam_size=5,  # Better beam search for accuracy
             best_of=5,  # Consider multiple candidates
-            fp16=False  # Use FP32 for better accuracy on CPU
+            fp16=False,  # Use FP32 for better accuracy on CPU
+            compression_ratio_threshold=2.4,  # Detect and avoid repetitions
+            logprob_threshold=-1.0,  # Filter out low confidence results
+            no_speech_threshold=0.6,  # Better silence detection
+            condition_on_previous_text=True,  # Use context from previous segments
+            word_timestamps=False  # Focus on transcription accuracy, not timing
         )
         return result["text"].strip()
     except Exception as e:
@@ -108,19 +113,26 @@ if not WHISPER_AVAILABLE and not SR_AVAILABLE:
     print("  2. SpeechRecognition: pip install SpeechRecognition")
     exit(1)
 
-print(f"🎤 Using transcription method: {'Whisper (offline) - BASE model (better accuracy)' if WHISPER_AVAILABLE else 'Google Speech Recognition (online)'}\n")
+print(f"🎤 Using transcription method: {'Whisper (offline) - SMALL model (high accuracy)' if WHISPER_AVAILABLE else 'Google Speech Recognition (online)'}\n")
 
 # Load Whisper model once if available
 whisper_model = None
 if WHISPER_AVAILABLE:
     print("📥 Loading Whisper model (this may take a moment)...")
-    print("   Using 'base' model for better accuracy (vs 'tiny' which is faster but less accurate)")
+    print("   Using 'small' model for high accuracy (slower but much better)")
+    print("   Model sizes: tiny < base < small < medium < large")
+    print("   'small' provides excellent accuracy for technical terms\n")
     try:
-        whisper_model = whisper.load_model("base")  # base model - good balance
+        whisper_model = whisper.load_model("small")  # small model - high accuracy
         print("✅ Whisper model loaded!\n")
     except Exception as e:
         print(f"❌ Failed to load Whisper model: {e}")
-        WHISPER_AVAILABLE = False
+        print("   Falling back to 'base' model...")
+        try:
+            whisper_model = whisper.load_model("base")
+            print("✅ Base model loaded!\n")
+        except:
+            WHISPER_AVAILABLE = False
 
 transcribed_count = 0
 failed_count = 0

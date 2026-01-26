@@ -3,7 +3,7 @@ import whisper
 from pathlib import Path
 
 print("=" * 70)
-print("RE-TRANSCRIBING AUDIO FILES WITH BETTER ACCURACY")
+print("RE-TRANSCRIBING AUDIO FILES WITH MAXIMUM ACCURACY")
 print("=" * 70)
 
 # Load the existing transcriptions
@@ -12,9 +12,17 @@ with open('../data/final_with_transcriptions.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
 # Load Whisper model
-print("\n📥 Loading Whisper 'base' model (better accuracy)...")
-model = whisper.load_model("base")
-print("✅ Model loaded!\n")
+print("\n📥 Loading Whisper 'small' model (high accuracy)...")
+print("   This will take longer but provide much better results")
+print("   Model: 'small' (244M parameters - excellent for technical terms)\n")
+try:
+    model = whisper.load_model("small")
+    print("✅ Small model loaded!\n")
+except Exception as e:
+    print(f"⚠️  Failed to load 'small' model: {e}")
+    print("   Falling back to 'base' model...")
+    model = whisper.load_model("base")
+    print("✅ Base model loaded!\n")
 
 audio_dir = Path('../data/audio_files')
 total_audio = 0
@@ -22,20 +30,22 @@ retranscribed = 0
 failed = 0
 
 def transcribe_audio(audio_path, model):
-    """Transcribe with improved settings"""
+    """Transcribe with maximum accuracy settings"""
     try:
         result = model.transcribe(
             str(audio_path),
             language="en",
-            initial_prompt="Computer science exam. Technical terms: merge sort, heap sort, bubble sort, quick sort, insertion sort, binary search, linear search, polymorphism, inheritance, encapsulation, overloading, overriding, RAM, ROM, DRAM, SRAM, CPU, ALU, cache, control unit, LAN, WAN, network, router, switch, HTTP, HTTPS, port, binary, algorithm, data structure, queue, stack, tree, graph, complexity, Big O notation, SQL, WHERE, TRUNCATE, Saturday, Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, January, February, March, April, May, June, July, August, September, October, November, December.",
+            initial_prompt="Computer science exam. Technical terms: merge sort, heap sort, bubble sort, quick sort, insertion sort, binary search, linear search, polymorphism, inheritance, encapsulation, overloading, overriding, abstraction, polymorphism, interface, abstract, RAM, ROM, DRAM, SRAM, CPU, ALU, cache, control unit, LAN, WAN, MAN, VPN, network, router, switch, HTTP, HTTPS, FTP, TCP, UDP, IP, port, MAC, binary, algorithm, data structure, queue, stack, tree, graph, linked list, array, complexity, Big O notation, SQL, WHERE, SELECT, INSERT, DELETE, UPDATE, TRUNCATE, kernel, driver, compiler, interpreter, operating system, Dijkstra, Prim, Kruskal, greedy, dynamic programming, divide and conquer, recursion, iteration, round robin, FCFS, SJF, priority scheduling, IPv4, IPv6, MAC address, destructor, constructor, delete, new, malloc, free, Saturday, Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, January, February, March, April, May, June, July, August, September, October, November, December.",
             verbose=False,
-            temperature=0.0,
-            beam_size=5,
-            fp16=False,
-            condition_on_previous_text=False,  # Prevent repetition
+            temperature=0.0,  # Deterministic
+            beam_size=5,  # Better beam search
+            best_of=5,  # Consider multiple candidates
+            fp16=False,  # Use FP32 for better accuracy
+            condition_on_previous_text=True,  # Use context
             compression_ratio_threshold=2.4,  # Detect and skip repetitive transcriptions
-            logprob_threshold=-1.0,  # More conservative
-            no_speech_threshold=0.6  # Better silence detection
+            logprob_threshold=-1.0,  # More conservative confidence threshold
+            no_speech_threshold=0.6,  # Better silence detection
+            word_timestamps=False  # Focus on accuracy, not timing
         )
         return result["text"].strip()
     except Exception as e:
