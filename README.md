@@ -7,20 +7,23 @@
 3. [Requirements](#requirements)
 4. [Setup and Installation](#setup-and-installation)
 5. [Usage](#usage)
+   - [Quick Start (Using Helper Script)](#quick-start-using-helper-script)
+   - [Manual Usage](#manual-usage)
    - [Transcribing Audio Answers](#transcribing-audio-answers)
    - [Generating CSV Reports](#generating-csv-reports)
    - [Re-transcribing with Better Accuracy](#re-transcribing-with-better-accuracy)
-6. [Output Files](#output-files)
+6. [Manual Verification and Correction](#manual-verification-and-correction)
+   - [Workflow for Manual Grading](#workflow-for-manual-grading)
+7. [Output Files](#output-files)
    - [Individual User CSVs](#individual-user-csvs)
-   - [Statistics CSV](#statistics-csv)
-7. [CSV Column Descriptions](#csv-column-descriptions)
+   - [General Statistics CSVs](#general-statistics-csvs)
+8. [CSV Column Descriptions](#csv-column-descriptions)
    - [Individual User CSV Columns](#individual-user-csv-columns)
-   - [Statistics CSV - General Statistics](#statistics-csv---general-statistics)
-   - [Statistics CSV - Individual User Data](#statistics-csv---individual-user-data)
-8. [Time Format](#time-format)
-9. [Data Source](#data-source)
-10. [Viewing CSV Files on GitHub](#viewing-csv-files-on-github)
-11. [Notes](#notes)
+   - [General Statistics CSVs](#general-statistics-csvs-1)
+9. [Time Format](#time-format)
+10. [Data Source](#data-source)
+11. [Viewing CSV Files on GitHub](#viewing-csv-files-on-github)
+12. [Notes](#notes)
 
 ---
 
@@ -54,7 +57,7 @@ answers-analysis-script/
 │   ├── audio_files/                    # Downloaded audio files (103 files)
 │   ├── retranscribe.log                # Logs from re-transcription
 │   └── retranscribe_final.log          # Final re-transcription logs
-├── output/                             # All generated CSV files
+├── output/                             # All generated CSV files (auto-generated)
 │   ├── user_csvs/                      # Individual user folders (20 users)
 │   │   ├── <user_id_1>/
 │   │   │   ├── summary.csv             # User statistics and metadata
@@ -66,10 +69,19 @@ answers-analysis-script/
 │   └── general_statistics/             # Aggregated statistics
 │       ├── summary.csv                 # Overall metrics and averages
 │       └── users.csv                   # Comparison table of all users
+├── manual_corrected_csvs/              # Manual corrections folder (user-created)
+│   ├── user_csvs/                      # Copy of user CSVs for manual grading
+│   │   └── ...                         # Corrected transcriptions & grading
+│   └── general_statistics/             # Copy of statistics with manual counts
+│       ├── summary.csv                 # Updated with manual grading
+│       └── users.csv                   # Updated with correct/wrong counts
 ├── .venv/                              # Python virtual environment
 ├── .gitignore
+├── run.sh                              # Helper script for easy execution
 └── README.md
 ```
+
+**Note:** The `manual_corrected_csvs/` folder should be created manually by copying the `output/` folder after generation. This folder is where you perform manual verification and corrections.
 
 ---
 
@@ -175,6 +187,40 @@ After re-transcription, regenerate CSVs:
 cd scripts
 python3 generate_csv.py
 ```
+
+---
+
+## Manual Verification and Correction
+
+### Workflow for Manual Grading
+
+After generating the CSV files, you should perform manual verification:
+
+1. **Create a copy for manual corrections:**
+   - Copy the entire `output/` folder to `manual_corrected_csvs/`
+   - This preserves the original generated files
+
+2. **Review and correct transcriptions:**
+   - Open each user's `answers.csv` in the `manual_corrected_csvs/` folder
+   - Check the **Transcription (Audio Answers)** column
+   - Correct any incorrect transcriptions directly in the CSV
+   - Common issues to look for:
+     - Technical terms misheard by Whisper
+     - Similar-sounding words (e.g., "Queue" vs "Cue")
+     - Repetitive transcriptions that indicate audio quality issues
+
+3. **Mark correct/wrong answers:**
+   - For each answer, fill in either the **Correct** or **Wrong** column
+   - Use consistent markers (e.g., "✓", "1", "Yes" for correct; "✗", "1", "Yes" for wrong)
+   - Leave both empty if you cannot determine correctness
+
+4. **Update summary statistics:**
+   - In each user's `summary.csv`, fill in:
+     - **Correct Answers (Count)** - total number of correct answers
+     - **Wrong Answers (Count)** - total number of wrong answers
+   - Update the `general_statistics/users.csv` with the same counts
+
+**Important:** Always work in the `manual_corrected_csvs/` folder to keep the original generated files intact. This allows you to regenerate if needed without losing manual corrections.
 
 ---
 
