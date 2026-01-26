@@ -6,8 +6,8 @@ final_with_transcriptions.json
 # Generated files
 graphs/
 audio_files/
-user_csvs/
-statistics_all_users.csv
+# user_csvs/
+# statistics_all_users.csv
 
 # Temporary/test files
 test_*.py
