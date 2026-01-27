@@ -1,42 +1,42 @@
 Metric,Value
-Total Users (Count),20
-Submitted Users (Count),16
-In Progress Users (Count),4
+Total Users (Count),15
+Submitted Users (Count),13
+In Progress Users (Count),2
 
-Total Answers (Count),325
-Total Text Answers (Count),222
-Total Audio Answers (Count),103
-Text vs Audio Ratio,2.16:1
+Total Answers (Count),283
+Total Text Answers (Count),188
+Total Audio Answers (Count),95
+Text vs Audio Ratio,1.98:1
 
-Average Time to Answer - Overall (mm:ss),0:21
-Average Time to Answer - Text (mm:ss),0:15
-Average Time to Answer - Audio (mm:ss),0:33
+Average Time to Answer - Overall (mm:ss),0:19
+Average Time to Answer - Text (mm:ss),0:13
+Average Time to Answer - Audio (mm:ss),0:31
 Audio takes longer than Text by (mm:ss),0:18
-Audio/Text Time Ratio,2.22
+Audio/Text Time Ratio,2.38
 
-Total Graded Answers (Count),246
-Total Correct Answers (Count),194
-Total Wrong Answers (Count),52
-Overall Accuracy (%),78.86%
+Total Graded Answers (Count),216
+Total Correct Answers (Count),166
+Total Wrong Answers (Count),50
+Overall Accuracy (%),76.85%
 
-Text Answers - Graded (Count),154
-Text Answers - Correct (Count),124
-Text Answers - Wrong (Count),30
-Text Accuracy (%),80.52%
+Text Answers - Graded (Count),132
+Text Answers - Correct (Count),104
+Text Answers - Wrong (Count),28
+Text Accuracy (%),78.79%
 
-Audio Answers - Graded (Count),92
-Audio Answers - Correct (Count),70
+Audio Answers - Graded (Count),84
+Audio Answers - Correct (Count),62
 Audio Answers - Wrong (Count),22
-Audio Accuracy (%),76.09%
+Audio Accuracy (%),73.81%
 
-Text vs Audio Performance Gap (%),4.43%
+Text vs Audio Performance Gap (%),4.98%
 Text performs better than Audio,Yes
 
-Average Tab Changes per User (Count),3.05
-Max Tab Changes (Count),14
+Average Tab Changes per User (Count),1.33
+Max Tab Changes (Count),6
 Min Tab Changes (Count),0
-Users with 0 Tab Changes (Count),10
-Users with Tab Changes (Count),9
+Users with 0 Tab Changes (Count),9
+Users with Tab Changes (Count),6
 
 Total Answered Questions (Count),311
 

@@ -2,6 +2,50 @@
 
 This folder contains manually corrected CSV files with verified transcriptions and grading.
 
+## Excluded Users
+
+The following users have been excluded from the statistics analysis:
+
+| User ID | Reason | Details |
+|---------|--------|---------|
+| `yskSrWOMY1dMfleJ1demTFRwmaB3` | Too many tab changes | 14 tab changes - possible cheater |
+| `kzHpKFHMcPPnV8KAKZX4skbzRlM2` | Too many tab changes | 11 tab changes - possible cheater |
+| `dwtLwhIgAyQAfqgq6BGgRYDqwdi2` | Too many tab changes | 8 tab changes - possible cheater |
+| `I95XongADMhnGoykzUkcFxfx2Zg1` | Incomplete answers | In progress / only accommodation questions |
+| `2jx38lBdkJZAffOTjapIJUOkcmT2` | Incomplete answers | In progress / only accommodation questions |
+
+**Total users analyzed:** 15 out of 20 (5 excluded)
+
+---
+
+## Impact of Exclusions
+
+Statistics comparison before and after excluding the 5 users:
+
+### Users
+- **Total:** 20 → 15 (-5 excluded users)
+- **Submitted:** 16 → 13
+- **In Progress:** 4 → 2
+
+### Answers
+- **Total:** 325 → 283 (-42)
+- **Text:** 222 → 188 (-34)
+- **Audio:** 103 → 95 (-8)
+
+### Accuracy
+- **Overall:** 78.86% → 76.85%
+- **Text:** 80.52% → 78.79%
+- **Audio:** 76.09% → 73.81%
+- **Gap (Text vs Audio):** 4.43% → 4.98%
+
+### Tab Changes
+- **Average:** 3.05 → 1.33 (dramatic decrease!)
+- **Maximum:** 14 → 6 (removed user with 14 tab changes)
+- **Users with 0 tabs:** 10 → 9
+- **Users with tabs:** 9 → 6
+
+---
+
 ## Correct Answers Reference
 
 Use this guide to grade student answers in the CSV files.
