@@ -109,6 +109,71 @@ def load_user_pair_data():
     return users_pairs
 
 
+def calculate_standard_vs_control_accuracy():
+    """Calculate separate accuracy metrics for standard and control questions."""
+    total_correct = 0
+    total_wrong = 0
+    standard_correct = 0
+    standard_wrong = 0
+    control_correct = 0
+    control_wrong = 0
+    
+    for user_dir in sorted(USER_CSVS_DIR.glob('*')):
+        if not user_dir.is_dir():
+            continue
+        
+        answers_file = user_dir / 'answers.csv'
+        if not answers_file.exists():
+            continue
+        
+        with open(answers_file, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                question_id = row.get('Question ID', '')
+                
+                # Skip accommodation questions
+                if 'accomodation' in question_id:
+                    continue
+                
+                is_correct = 'x' in row.get('Correct', '').lower()
+                is_wrong = 'x' in row.get('Wrong', '').lower()
+                
+                # Count totals
+                if is_correct:
+                    total_correct += 1
+                if is_wrong:
+                    total_wrong += 1
+                
+                # Separate standard and control
+                if '_standard_' in question_id:
+                    if is_correct:
+                        standard_correct += 1
+                    if is_wrong:
+                        standard_wrong += 1
+                elif '_control_' in question_id:
+                    if is_correct:
+                        control_correct += 1
+                    if is_wrong:
+                        control_wrong += 1
+    
+    # Calculate accuracies
+    overall_accuracy = (total_correct / (total_correct + total_wrong) * 100) if (total_correct + total_wrong) > 0 else 0
+    core_accuracy = (standard_correct / (standard_correct + standard_wrong) * 100) if (standard_correct + standard_wrong) > 0 else 0
+    control_accuracy = (control_correct / (control_correct + control_wrong) * 100) if (control_correct + control_wrong) > 0 else 0
+    
+    return {
+        'overall_accuracy': overall_accuracy,
+        'overall_correct': total_correct,
+        'overall_wrong': total_wrong,
+        'core_accuracy': core_accuracy,
+        'core_correct': standard_correct,
+        'core_wrong': standard_wrong,
+        'control_accuracy': control_accuracy,
+        'control_correct': control_correct,
+        'control_wrong': control_wrong
+    }
+
+
 def generate_overall_accuracy_chart(data):
     """Chart 1: Overall Correct vs Wrong Answers."""
     correct = parse_number(data.get('Total Correct Answers (Count)', 0))
@@ -439,6 +504,71 @@ def generate_user_pairs_performance(users_pairs):
     print("✓ Generated: 7_user_pairs_performance.png")
 
 
+def generate_three_accuracy_metrics_chart(accuracy_data):
+    """Chart 8: Three Accuracy Metrics Comparison (Overall, Control, Core)."""
+    fig, ax = plt.subplots(figsize=(14, 8))
+    
+    # Extract data
+    overall_acc = accuracy_data['overall_accuracy']
+    control_acc = accuracy_data['control_accuracy']
+    core_acc = accuracy_data['core_accuracy']
+    
+    categories = ['Overall Accuracy\n(All Questions)', 
+                  'Control Accuracy\n(Consistency Check)', 
+                  'Core Accuracy\n(Actual Knowledge)']
+    accuracies = [overall_acc, control_acc, core_acc]
+    colors = ['#9C27B0', '#FF5722', '#4CAF50']  # Purple, Orange-Red, Green
+    
+    bars = ax.bar(categories, accuracies, color=colors, width=0.6, 
+                  edgecolor='black', linewidth=2)
+    
+    # Add percentage labels on bars
+    for bar, acc in zip(bars, accuracies):
+        height = bar.get_height()
+        ax.text(bar.get_x() + bar.get_width()/2., height,
+                f'{acc:.2f}%',
+                ha='center', va='bottom', fontsize=20, fontweight='bold')
+    
+    # Add counts below each bar
+    counts_text = [
+        f'{accuracy_data["overall_correct"]}C / {accuracy_data["overall_wrong"]}W',
+        f'{accuracy_data["control_correct"]}C / {accuracy_data["control_wrong"]}W',
+        f'{accuracy_data["core_correct"]}C / {accuracy_data["core_wrong"]}W'
+    ]
+    
+    for i, (bar, count_text) in enumerate(zip(bars, counts_text)):
+        ax.text(bar.get_x() + bar.get_width()/2., -3,
+                count_text,
+                ha='center', va='top', fontsize=11, fontweight='bold',
+                bbox=dict(boxstyle='round,pad=0.4', facecolor='lightgray', alpha=0.7))
+    
+    ax.set_ylabel('Accuracy (%)', fontsize=14, fontweight='bold')
+    ax.set_title('Three Accuracy Metrics Comparison\n(Based on Question Type)', 
+                 fontsize=17, fontweight='bold', pad=20)
+    ax.set_ylim(-8, 105)
+    
+    # Add grid
+    ax.yaxis.grid(True, alpha=0.3)
+    ax.set_axisbelow(True)
+    
+    # Add explanatory text boxes at the bottom with proper formulas
+    explanation_overall = "Formula (1):\nAccuracy = (Correct / (Correct + Wrong)) × 100\n\nAll questions (standard + control)"
+    explanation_control = "Formula (2):\nAccuracy_control = (C_dup / (C_dup + W_dup)) × 100\n\nOnly control questions (duplicates)"
+    explanation_core = "Formula (3):\nAccuracy_core = (C_core / (C_core + W_core)) × 100\n\nOnly standard questions (exclude control)"
+    
+    fig.text(0.15, 0.02, explanation_overall, ha='center', va='bottom', fontsize=10,
+             bbox=dict(boxstyle='round,pad=0.6', facecolor='#E1BEE7', alpha=0.8, linewidth=1.5))
+    fig.text(0.5, 0.02, explanation_control, ha='center', va='bottom', fontsize=10,
+             bbox=dict(boxstyle='round,pad=0.6', facecolor='#FFCCBC', alpha=0.8, linewidth=1.5))
+    fig.text(0.85, 0.02, explanation_core, ha='center', va='bottom', fontsize=10,
+             bbox=dict(boxstyle='round,pad=0.6', facecolor='#C8E6C9', alpha=0.8, linewidth=1.5))
+    
+    plt.tight_layout(rect=[0, 0.14, 1, 1])
+    plt.savefig(VISUALS_DIR / '8_three_accuracy_metrics.png', dpi=300, bbox_inches='tight')
+    plt.close()
+    print("✓ Generated: 8_three_accuracy_metrics.png")
+
+
 def main():
     """Main function to generate all visualizations."""
     print("\n" + "="*60)
@@ -453,6 +583,10 @@ def main():
     users_pairs = load_user_pair_data()
     print(f"✓ Loaded pair data for {len(users_pairs)} users\n")
     
+    print("Calculating standard vs control accuracy...")
+    accuracy_metrics = calculate_standard_vs_control_accuracy()
+    print(f"✓ Overall: {accuracy_metrics['overall_accuracy']:.2f}%, Control: {accuracy_metrics['control_accuracy']:.2f}%, Core: {accuracy_metrics['core_accuracy']:.2f}%\n")
+    
     print("Generating charts...\n")
     
     # Generate all charts
@@ -463,6 +597,7 @@ def main():
     generate_pairs_overview_chart(users_pairs)
     generate_pairs_pie_chart(users_pairs)
     generate_user_pairs_performance(users_pairs)
+    generate_three_accuracy_metrics_chart(accuracy_metrics)
     
     print("\n" + "="*60)
     print(f"✅ All visualizations saved to: {VISUALS_DIR}")
