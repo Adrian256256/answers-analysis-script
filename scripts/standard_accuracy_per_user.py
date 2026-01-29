@@ -35,9 +35,18 @@ def process_user_answers(user_id, answers_path):
 def main():
     base = 'manual_corrected_csvs/user_csvs'
     out_csv = 'output/general_statistics/standard_accuracy_per_user.csv'
+    exclude_users = {
+        'yskSrWOMY1dMfleJ1demTFRwmaB3',
+        'kzHpKFHMcPPnV8KAKZX4skbzRlM2',
+        'dwtLwhIgAyQAfqgq6BGgRYDqwdi2',
+        'I95XongADMhnGoykzUkcFxfx2Zg1',
+        '2jx38lBdkJZAffOTjapIJUOkcmT2',
+    }
     user_dirs = [d for d in os.listdir(base) if os.path.isdir(os.path.join(base, d))]
     results = []
     for user_id in sorted(user_dirs):
+        if user_id in exclude_users:
+            continue
         answers_path = os.path.join(base, user_id, 'answers.csv')
         if os.path.exists(answers_path):
             results.append(process_user_answers(user_id, answers_path))
