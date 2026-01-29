@@ -50,8 +50,9 @@ def main():
         answers_path = os.path.join(base, user_id, 'answers.csv')
         if os.path.exists(answers_path):
             results.append(process_user_answers(user_id, answers_path))
-    with open(out_csv, 'a', newline='', encoding='utf-8') as f:
+    with open(out_csv, 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
+        writer.writerow(['user_id','text_right','text_wrong','text_accuracy','audio_right','audio_wrong','audio_accuracy'])
         for row in results:
             writer.writerow(row)
 

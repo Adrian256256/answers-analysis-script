@@ -1,3 +1,4 @@
+user_id,text_right,text_wrong,text_accuracy,audio_right,audio_wrong,audio_accuracy
 1KznrIROVcQisRpGQw0kRF79lEW2,3,0,1.0,3,0,1.0
 2et8mPBfSobMEflsrjHPlpbBRVl1,6,0,1.0,2,0,1.0
 3SZBa8bz71cc3n0GqPIe0Cp5EC13,4,1,0.8,0,5,0.0
