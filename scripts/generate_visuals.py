@@ -207,7 +207,7 @@ def generate_overall_accuracy_chart(data):
     plt.tight_layout()
     plt.savefig(VISUALS_DIR / '1_overall_accuracy.png', dpi=300, bbox_inches='tight')
     plt.close()
-    print("✓ Generated: 1_overall_accuracy.png")
+    print("Generated: 1_overall_accuracy.png")
 
 
 def generate_text_vs_audio_chart(data):
@@ -268,7 +268,7 @@ def generate_text_vs_audio_chart(data):
     plt.tight_layout()
     plt.savefig(VISUALS_DIR / '2_text_vs_audio.png', dpi=300, bbox_inches='tight')
     plt.close()
-    print("✓ Generated: 2_text_vs_audio.png")
+    print("Generated: 2_text_vs_audio.png")
 
 
 def generate_accuracy_comparison_chart(data):
@@ -309,7 +309,7 @@ def generate_accuracy_comparison_chart(data):
     plt.tight_layout()
     plt.savefig(VISUALS_DIR / '3_accuracy_comparison.png', dpi=300, bbox_inches='tight')
     plt.close()
-    print("✓ Generated: 3_accuracy_comparison.png")
+    print("Generated: 3_accuracy_comparison.png")
 
 
 def generate_time_analysis_chart(data):
@@ -362,7 +362,7 @@ def generate_time_analysis_chart(data):
     plt.tight_layout()
     plt.savefig(VISUALS_DIR / '4_time_analysis.png', dpi=300, bbox_inches='tight')
     plt.close()
-    print("✓ Generated: 4_time_analysis.png")
+    print("Generated: 4_time_analysis.png")
 
 
 def generate_pairs_overview_chart(users_pairs):
@@ -407,7 +407,7 @@ def generate_pairs_overview_chart(users_pairs):
     plt.tight_layout()
     plt.savefig(VISUALS_DIR / '5_pairs_overview.png', dpi=300, bbox_inches='tight')
     plt.close()
-    print("✓ Generated: 5_pairs_overview.png")
+    print("Generated: 5_pairs_overview.png")
 
 
 def generate_pairs_pie_chart(users_pairs):
@@ -450,7 +450,7 @@ def generate_pairs_pie_chart(users_pairs):
     plt.tight_layout()
     plt.savefig(VISUALS_DIR / '6_pairs_pie_chart.png', dpi=300, bbox_inches='tight')
     plt.close()
-    print("✓ Generated: 6_pairs_pie_chart.png")
+    print("Generated: 6_pairs_pie_chart.png")
 
 
 def generate_user_pairs_performance(users_pairs):
@@ -501,7 +501,7 @@ def generate_user_pairs_performance(users_pairs):
     plt.tight_layout()
     plt.savefig(VISUALS_DIR / '7_user_pairs_performance.png', dpi=300, bbox_inches='tight')
     plt.close()
-    print("✓ Generated: 7_user_pairs_performance.png")
+    print("Generated: 7_user_pairs_performance.png")
 
 
 def generate_three_accuracy_metrics_chart(accuracy_data):
@@ -566,7 +566,7 @@ def generate_three_accuracy_metrics_chart(accuracy_data):
     plt.tight_layout(rect=[0, 0.14, 1, 1])
     plt.savefig(VISUALS_DIR / '8_three_accuracy_metrics.png', dpi=300, bbox_inches='tight')
     plt.close()
-    print("✓ Generated: 8_three_accuracy_metrics.png")
+    print("Generated: 8_three_accuracy_metrics.png")
 
 
 def main():
@@ -577,15 +577,15 @@ def main():
     
     print("Loading data from summary.csv...")
     data = load_summary_data()
-    print(f"✓ Loaded {len(data)} metrics\n")
+    print(f"Loaded {len(data)} metrics\n")
     
     print("Loading user pair statistics...")
     users_pairs = load_user_pair_data()
-    print(f"✓ Loaded pair data for {len(users_pairs)} users\n")
+    print(f"Loaded pair data for {len(users_pairs)} users\n")
     
     print("Calculating standard vs control accuracy...")
     accuracy_metrics = calculate_standard_vs_control_accuracy()
-    print(f"✓ Overall: {accuracy_metrics['overall_accuracy']:.2f}%, Control: {accuracy_metrics['control_accuracy']:.2f}%, Core: {accuracy_metrics['core_accuracy']:.2f}%\n")
+    print(f"Overall: {accuracy_metrics['overall_accuracy']:.2f}%, Control: {accuracy_metrics['control_accuracy']:.2f}%, Core: {accuracy_metrics['core_accuracy']:.2f}%\n")
     
     print("Generating charts...\n")
     
@@ -600,7 +600,7 @@ def main():
     generate_three_accuracy_metrics_chart(accuracy_metrics)
     
     print("\n" + "="*60)
-    print(f"✅ All visualizations saved to: {VISUALS_DIR}")
+    print(f"All visualizations saved to: {VISUALS_DIR}")
     print("="*60 + "\n")
 
 

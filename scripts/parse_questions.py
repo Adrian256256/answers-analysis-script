@@ -88,7 +88,7 @@ if __name__ == '__main__':
     with open('../data/questions_map.json', 'w', encoding='utf-8') as f:
         json.dump(questions, f, indent=2, ensure_ascii=False)
     
-    print(f"✅ Parsed {len(questions)} questions")
+    print(f"Parsed {len(questions)} questions")
     print("\nSample questions:")
     for i, (qid, text) in enumerate(list(questions.items())[:5]):
         print(f"  {qid}: {text[:60]}...")

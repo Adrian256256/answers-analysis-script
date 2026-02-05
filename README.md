@@ -211,7 +211,7 @@ After generating the CSV files, you should perform manual verification:
 
 3. **Mark correct/wrong answers:**
    - For each answer, fill in either the **Correct** or **Wrong** column
-   - Use consistent markers (e.g., "✓", "1", "Yes" for correct; "✗", "1", "Yes" for wrong)
+   - Use consistent markers (e.g., "OK", "1", "Yes" for correct; "X", "1", "Yes" for wrong)
    - Leave both empty if you cannot determine correctness
 
 4. **Update summary statistics:**

@@ -9,11 +9,11 @@ def load_data():
     # Încearcă să încarce fișierul cu transcripții
     import os
     if os.path.exists('../data/final_with_transcriptions.json'):
-        print('📝 Using final_with_transcriptions.json (with audio transcriptions)')
+        print('Using final_with_transcriptions.json (with audio transcriptions)')
         with open('../data/final_with_transcriptions.json', 'r', encoding='utf-8') as f:
             return json.load(f)
     else:
-        print('📝 Using final.json (no transcriptions yet)')
+        print('Using final.json (no transcriptions yet)')
         with open('../data/final.json', 'r', encoding='utf-8') as f:
             return json.load(f)
 
@@ -298,7 +298,7 @@ def create_statistics_csv(data, output_dir='../output/general_statistics'):
             avg_time = total_time_spent / submitted_count if submitted_count > 0 else 0
             writer.writerow(['Average Time Spent per User (mm:ss)', seconds_to_time_format(avg_time)])
     
-    print(f'✅ Created {summary_path}')
+    print(f'Created {summary_path}')
     
     # 2. Creează users.csv cu date individuale pentru fiecare user
     users_path = os.path.join(output_dir, 'users.csv')
@@ -391,7 +391,7 @@ def create_statistics_csv(data, output_dir='../output/general_statistics'):
                 submission_time
             ])
     
-    print(f'✅ Created {users_path}')
+    print(f'Created {users_path}')
 
 
 def main():
@@ -401,7 +401,7 @@ def main():
     
     print('Loading questions map...')
     questions_map = load_questions()
-    print(f'✅ Loaded {len(questions_map)} questions\n')
+    print(f'Loaded {len(questions_map)} questions\n')
     
     print('\nGenerating individual user CSVs...')
     exam_progress = data.get('examProgress', {})
@@ -414,7 +414,7 @@ def main():
     print('\nGenerating statistics CSVs...')
     create_statistics_csv(data)
     
-    print('\n✅ All CSVs generated successfully!')
+    print('\nAll CSVs generated successfully!')
     print(f'- Individual user CSVs: user_csvs/<user_id>/summary.csv and answers.csv')
     print(f'- General statistics: general_statistics/summary.csv and users.csv')
 

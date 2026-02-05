@@ -7,22 +7,22 @@ print("RE-TRANSCRIBING AUDIO FILES WITH MAXIMUM ACCURACY")
 print("=" * 70)
 
 # Load the existing transcriptions
-print("\n📂 Loading existing data...")
+print("\nLoading existing data...")
 with open('../data/final_with_transcriptions.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
 
 # Load Whisper model
-print("\n📥 Loading Whisper 'small' model (high accuracy)...")
+print("\nLoading Whisper 'small' model (high accuracy)...")
 print("   This will take longer but provide much better results")
 print("   Model: 'small' (244M parameters - excellent for technical terms)\n")
 try:
     model = whisper.load_model("small")
-    print("✅ Small model loaded!\n")
+    print("Small model loaded!\n")
 except Exception as e:
-    print(f"⚠️  Failed to load 'small' model: {e}")
+    print(f"Failed to load 'small' model: {e}")
     print("   Falling back to 'base' model...")
     model = whisper.load_model("base")
-    print("✅ Base model loaded!\n")
+    print("Base model loaded!\n")
 
 audio_dir = Path('../data/audio_files')
 total_audio = 0
@@ -49,7 +49,7 @@ def transcribe_audio(audio_path, model):
         )
         return result["text"].strip()
     except Exception as e:
-        print(f"      ❌ Failed: {e}")
+        print(f"      Failed: {e}")
         return None
 
 print("=" * 70)
@@ -69,12 +69,12 @@ for user_id, user_data in data.get('examProgress', {}).items():
         audio_path = audio_dir / audio_filename
         
         if not audio_path.exists():
-            print(f"  ⚠️  {user_id[:15]}... / {question_id}: Audio file not found")
+            print(f"  {user_id[:15]}... / {question_id}: Audio file not found")
             failed += 1
             continue
         
         old_transcription = answer.get('transcription', '')
-        print(f"\n  🎵 {user_id[:15]}... / {question_id}")
+        print(f"\n  {user_id[:15]}... / {question_id}")
         print(f"     Old: '{old_transcription}'")
         
         new_transcription = transcribe_audio(audio_path, model)
@@ -85,9 +85,9 @@ for user_id, user_data in data.get('examProgress', {}).items():
             retranscribed += 1
             
             if old_transcription != new_transcription:
-                print(f"     ✅ IMPROVED!")
+                print(f"     IMPROVED!")
             else:
-                print(f"     ✓ Same")
+                print(f"     Same")
         else:
             failed += 1
 
@@ -109,12 +109,12 @@ for user_id, results in data.get('examResults', {}).items():
             audio_path = audio_dir / audio_filename
             
             if not audio_path.exists():
-                print(f"  ⚠️  {user_id[:15]}... / {question_id}: Audio file not found")
+                print(f"  {user_id[:15]}... / {question_id}: Audio file not found")
                 failed += 1
                 continue
             
             old_transcription = answer.get('transcription', '')
-            print(f"\n  🎵 {user_id[:15]}... / {question_id}")
+            print(f"\n  {user_id[:15]}... / {question_id}")
             print(f"     Old: '{old_transcription}'")
             
             new_transcription = transcribe_audio(audio_path, model)
@@ -125,9 +125,9 @@ for user_id, results in data.get('examResults', {}).items():
                 retranscribed += 1
                 
                 if old_transcription != new_transcription:
-                    print(f"     ✅ IMPROVED!")
+                    print(f"     IMPROVED!")
                 else:
-                    print(f"     ✓ Same")
+                    print(f"     Same")
             else:
                 failed += 1
 
@@ -138,11 +138,11 @@ with open('../data/final_with_transcriptions.json', 'w', encoding='utf-8') as f:
     json.dump(data, f, indent=2, ensure_ascii=False)
 
 print("\n" + "=" * 70)
-print("🎉 RE-TRANSCRIPTION COMPLETE!")
+print("RE-TRANSCRIPTION COMPLETE!")
 print("=" * 70)
-print(f"📊 Statistics:")
+print(f"Statistics:")
 print(f"  - Total audio files: {total_audio}")
 print(f"  - Successfully re-transcribed: {retranscribed}")
 print(f"  - Failed: {failed}")
-print(f"\n💾 Updated data saved to: ../data/final_with_transcriptions.json")
-print(f"📝 Run 'cd scripts && python3 generate_csv.py' to update CSVs with new transcriptions")
+print(f"\nUpdated data saved to: ../data/final_with_transcriptions.json")
+print(f"Run 'cd scripts && python3 generate_csv.py' to update CSVs with new transcriptions")
